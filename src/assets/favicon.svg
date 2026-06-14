@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Fuente: Código SVG personalizado con el texto Level-Up Gamer -->
+  <rect width="256" height="256" rx="40" fill="#08142b" stroke="#00ffff" stroke-width="6"/>
+  <text x="140" y="115" font-family="Impact, 'Arial Black', sans-serif" font-size="46" font-weight="bold" fill="#ffffff" text-anchor="middle" transform="skewX(-8)">LEVEL-UP</text>
+  <text x="148" y="180" font-family="Impact, 'Arial Black', sans-serif" font-size="50" font-weight="bold" fill="#39ff14" text-anchor="middle" transform="skewX(-8)">GAMER</text>
+</svg>
