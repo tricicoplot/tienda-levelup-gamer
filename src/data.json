@@ -1,0 +1,26 @@
+[
+  {
+    "codigo": "JM001",
+    "categoria": "Juegos de Mesa",
+    "nombre": "Catan",
+    "precio": 29990,
+    "descripcion": "Un clásico juego de estrategia donde los jugadores compiten por colonizar y expandirse en la isla de Catan.",
+    "imagen": "https://picsum.photos/id/102/600/400"
+  },
+  {
+    "codigo": "AC001",
+    "categoria": "Accesorios",
+    "nombre": "Controlador Inalámbrico Xbox Series X",
+    "precio": 59990,
+    "descripcion": "Ofrece una experiencia de juego cómoda con botones mapeables y una respuesta táctil mejorada.",
+    "imagen": "https://picsum.photos/id/111/600/400"
+  },
+  {
+    "codigo": "CO001",
+    "categoria": "Consolas",
+    "nombre": "PlayStation 5",
+    "precio": 549990,
+    "descripcion": "La consola de última generación de Sony, que ofrece gráficos impresionantes y tiempos de carga ultrarrápidos.",
+    "imagen": "https://picsum.photos/id/112/600/400"
+  }
+]

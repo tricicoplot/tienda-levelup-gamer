@@ -1,18 +1,15 @@
 // ─────────────────────────────────────────────────────────────
-// productos.js — Carga y renderiza productos desde data.json
-//
+// app.js — Controlador central de productos, filtros y carrito
+// ─────────────────────────────────────────────────────────────
 
-// 1. Captura de elementos del DOM
 const grid = document.getElementById("grid-productos");
 const sinResultados = document.getElementById("sin-resultados");
 const botonesFiltro = document.querySelectorAll("#filtros button");
 const cartCount = document.getElementById("cart-count");
 
-// Inicialización del carrito desde localStorage [cite: 227]
 let carrito = JSON.parse(localStorage.getItem("carrito-levelup")) || [];
 actualizarContadorCarrito();
 
-// 2. Creación de la tarjeta de producto (Imagen, nombre, precio y botón añadir) [cite: 167]
 function crearCard(producto) {
     return `
         <div class="col-sm-6 col-md-4 col-lg-3">
@@ -32,7 +29,6 @@ function crearCard(producto) {
     `;
 }
 
-// 3. Renderizado de la lista
 function renderizar(lista) {
     if (lista.length === 0) {
         grid.innerHTML = "";
@@ -43,7 +39,6 @@ function renderizar(lista) {
     grid.innerHTML = lista.map(crearCard).join("");
 }
 
-// 4. Lógica para añadir al carrito y guardar en localStorage [cite: 225, 227]
 window.agregarAlCarrito = function(codigo) {
     carrito.push(codigo);
     localStorage.setItem("carrito-levelup", JSON.stringify(carrito));
@@ -57,7 +52,6 @@ function actualizarContadorCarrito() {
     }
 }
 
-// 5. Carga inicial de datos y sistema de filtros avanzados [cite: 20]
 let todosLosProductos = [];
 
 fetch('data.json')
@@ -71,19 +65,23 @@ fetch('data.json')
     })
     .catch(error => console.error("Error al cargar productos:", error));
 
-// 6. Eventos para los botones de filtrado
+// Corrección de los filtros para evitar que los estilos fallen
 botonesFiltro.forEach(boton => {
     boton.addEventListener("click", (e) => {
-        // Quitar la clase active del botón anterior
+        
         botonesFiltro.forEach(b => {
             b.classList.remove("active");
-            b.classList.replace("btn-neon", "btn-outline-neon");
+            if (b.classList.contains("btn-neon")) {
+                b.classList.replace("btn-neon", "btn-outline-neon");
+            }
         });
         
-        // Agregar clase active al botón clickeado
         const btnSeleccionado = e.target;
         btnSeleccionado.classList.add("active");
-        btnSeleccionado.classList.replace("btn-outline-neon", "btn-neon");
+        
+        if (btnSeleccionado.classList.contains("btn-outline-neon")) {
+            btnSeleccionado.classList.replace("btn-outline-neon", "btn-neon");
+        }
 
         const categoria = btnSeleccionado.getAttribute("data-categoria");
         
