@@ -1,149 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Level-Up Gamer — Tienda Oficial</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="src/assets/favicon.svg">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level-Up Gamer | Tienda Oficial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
-
-  <header class="site-header sticky-top">
-    <div class="container-fluid px-4 py-2">
-      <div class="d-flex justify-content-between align-items-center flex-wrap">
-        <a href="#seccion-home" class="navbar-brand d-flex align-items-center gap-2">
-          <img src="src/assets/logo.svg" alt="Level-Up Gamer Logo" width="45" height="45">
-          <span class="logo-text">LEVEL-UP GAMER</span>
-        </a>
-
-        <nav class="main-nav my-2 my-md-0">
-          <ul class="nav gap-1 justify-content-center">
-            <li class="nav-item"><a href="#seccion-home" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="#seccion-productos" class="nav-link">Productos</a></li>
-            <li class="nav-item"><a href="#seccion-contacto" class="nav-link">Contacto</a></li>
-          </ul>
-        </nav>
-
-        <div class="cart-status">
-          <a href="#seccion-productos" class="btn btn-outline-neon d-flex align-items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
-              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-            </svg>
-            <span>Cart (<span id="cart-count">0</span>)</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="d-flex justify-content-end gap-3 mt-1 auth-links small">
-        <a href="#seccion-login" class="auth-link">Iniciar sesión</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="container py-5">
-    
-    <section id="seccion-home" class="mb-5 p-4 p-md-5 rounded border hero-section">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-6">
-          <h1 class="hero-title text-uppercase mb-3">Tienda Online</h1>
-          <p class="hero-subtitle mb-4">
-            ¡Desafía tus límites con Level-Up Gamer! Conviértete en el héroe de tu propia historia y únete a nuestra comunidad de jugadores.
-          </p>
-          <a href="#seccion-productos" class="btn btn-neon btn-lg px-4 text-uppercase fw-bold">Ver productos</a>
-        </div>
-        <div class="col-lg-6 text-center">
-          <img src="src/assets/Levelupimg1.png" alt="Comunidad Level-Up Gamer" class="img-fluid rounded shadow" style="max-height: 350px; object-fit: cover;">
-        </div>
-      </div>
-    </section>
-
-    <hr class="my-5 border-secondary" />
-
-    <section id="seccion-productos" class="mb-5">
-      <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-2">
-        <h2 class="section-title text-uppercase">Catálogo de Productos</h2>
-        <div id="filtros" class="d-flex gap-2 flex-wrap justify-content-end">
-          <button class="btn btn-neon btn-sm rounded-pill active" data-categoria="todos">Todos</button>
-          <button class="btn btn-outline-neon btn-sm rounded-pill" data-categoria="Juegos de Mesa">Juegos de Mesa</button>
-          <button class="btn btn-outline-neon btn-sm rounded-pill" data-categoria="Accesorios">Accesorios</button>
-          <button class="btn btn-outline-neon btn-sm rounded-pill" data-categoria="Consolas">Consolas</button>
-        </div>
-      </div>
-      <div id="grid-productos" class="row g-4"></div>
-      <p id="sin-resultados" class="text-center text-muted py-5 d-none">No hay productos en esta categoría.</p>
-    </section>
-
-    <hr class="my-5 border-secondary" />
-
-    <section id="seccion-login" class="mb-5">
-      <h2 class="section-title text-uppercase text-center mb-4">Iniciar Sesión</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-          <form id="loginForm" class="border p-4 rounded" style="background-color: #0a0a0a; border-color: #333 !important;" novalidate>
-            <div class="mb-3">
-              <label for="loginEmail" class="form-label">Correo Electrónico</label>
-              <input type="email" class="form-control bg-dark text-light border-secondary" id="loginEmail">
-              <div class="invalid-feedback">Ingresa un correo válido (@inacap.cl, @inacapmail.cl, @gmail.com)</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#seccion-home">LEVEL-UP GAMER</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="#seccion-home">Home</a>
+                <a class="nav-link" href="#seccion-productos">Productos</a>
+                <a class="nav-link" href="#seccion-nosotros">Nosotros</a>
+                <a class="nav-link" href="#seccion-blogs">Blogs</a>
+                <a class="nav-link" href="#seccion-contacto">Contacto</a>
+                <a class="nav-link" href="components/admin.html">Admin</a>
             </div>
-            <div class="mb-4">
-              <label for="loginPassword" class="form-label">Contraseña</label>
-              <input type="password" class="form-control bg-dark text-light border-secondary" id="loginPassword">
-              <div class="invalid-feedback">La contraseña debe tener entre 4 y 10 caracteres.</div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <section id="seccion-home" class="mb-5 text-center">
+            <h1>Tienda Online</h1>
+            <p>¡Desafía tus límites con Level-Up Gamer!</p>
+        </section>
+
+        <section id="seccion-productos" class="mb-5">
+            <h2 class="mb-4">Catálogo Completo</h2>
+            <div id="grid-productos" class="row g-4"></div>
+        </section>
+
+        <section id="seccion-nosotros" class="mb-5 p-4 bg-dark text-white rounded">
+            <h2>Nosotros</h2>
+            <p>Tienda líder en Chile en productos gaming, nacida para satisfacer la demanda de los entusiastas del juego.</p>
+        </section>
+
+        <section id="seccion-blogs" class="mb-5">
+            <h2>Blogs</h2>
+            <div class="row g-3">
+                <div class="col-md-6"><div class="card bg-dark text-white p-3"><h5>Noticia 1</h5><p>Detalles sobre lanzamientos.</p></div></div>
+                <div class="col-md-6"><div class="card bg-dark text-white p-3"><h5>Noticia 2</h5><p>Consejos pro para gamers.</p></div></div>
             </div>
-            <button type="submit" class="btn btn-neon w-100 fw-bold text-uppercase">Entrar</button>
-            <div id="loginExito" class="mt-3 alert alert-success d-none text-center" role="alert">
-              ¡Inicio de sesión exitoso!
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <hr class="my-5 border-secondary" />
+        <section id="seccion-contacto" class="mb-5">
+            <h2>Contacto</h2>
+            <form id="contactoForm" class="p-4 bg-dark text-white rounded">
+                <input type="text" id="contactoNombre" class="form-control mb-2" placeholder="Nombre">
+                <textarea id="contactoMensaje" class="form-control mb-2" placeholder="Mensaje"></textarea>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </section>
 
-    <section id="seccion-contacto" class="mb-5">
-      <h2 class="section-title text-uppercase mb-1">Contacto</h2>
-      <p class="text-muted mb-4 small">Envíanos un mensaje de manera interna.</p>
-      <form id="contactoForm" class="row g-3" style="max-width: 680px;" novalidate>
-        <div class="col-md-6">
-          <label for="contactoNombre" class="form-label">Nombre Completo</label>
-          <input type="text" class="form-control bg-dark text-light border-secondary" id="contactoNombre">
-          <div class="invalid-feedback">El nombre es requerido (Máx 100 caracteres).</div>
-        </div>
-        <div class="col-md-6">
-          <label for="contactoEmail" class="form-label">Correo Electrónico</label>
-          <input type="email" class="form-control bg-dark text-light border-secondary" id="contactoEmail">
-          <div class="invalid-feedback">Ingresa un correo válido (@inacap.cl, @profesor.inacap.cl, @gmail.com).</div>
-        </div>
-        <div class="col-12">
-          <label for="contactoMensaje" class="form-label">Contenido</label>
-          <textarea class="form-control bg-dark text-light border-secondary" id="contactoMensaje" rows="4"></textarea>
-          <div class="invalid-feedback">El comentario es requerido (Máx 500 caracteres).</div>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-outline-neon px-5 text-uppercase fw-bold">Enviar Mensaje</button>
-        </div>
-        <div id="contactoExito" class="col-12 alert alert-success d-none mt-3" role="alert">
-          <strong>¡Mensaje enviado!</strong> Te responderemos a la brevedad.
-        </div>
-      </form>
-    </section>
+        <section id="seccion-registro" class="mb-5">
+            <h2>Registro de Usuario</h2>
+            <form id="registroForm" class="p-4 bg-dark text-white rounded">
+                <input type="text" id="regNombre" class="form-control mb-2" placeholder="Nombre completo" required>
+                <input type="email" id="regCorreo" class="form-control mb-2" placeholder="Correo" required>
+                <input type="date" id="regFechaNac" class="form-control mb-2" required>
+                <button type="submit" class="btn btn-success">Registrar</button>
+            </form>
+        </section>
+    </main>
 
-  </main>
-
-  <footer class="site-footer border-top py-4 mt-auto">
-    <div class="container text-center text-muted small">
-      &copy; 2026 Level-Up Gamer. Todos los derechos reservados.
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="app.js"></script>
-  <script src="formulario.js"></script>
+    <script src="src/js/app.js"></script>
+    <script src="src/js/formulario.js"></script>
 </body>
 </html>
