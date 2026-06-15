@@ -1,6 +1,11 @@
 function verificarAcceso(rolPermitido) {
-    const usuario = JSON.parse(localStorage.getItem("usuario-actual")) || { rol: 'Cliente' };
-    if (usuario.rol !== rolPermitido && usuario.rol !== 'Administrador') {
+    const sesion = localStorage.getItem("usuario-actual");
+    if (!sesion) {
+        window.location.href = 'login.html';
+        return;
+    }
+    const usuario = JSON.parse(sesion);
+    if (usuario.rol !== rolPermitido) {
         alert("Acceso denegado.");
         window.location.href = '../index.html';
     }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Level-Up Gamer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white d-flex align-items-center justify-content-center min-vh-100">
+    <div class="card bg-dark p-4" style="width: 300px;">
+        <h3 class="text-center">Acceso Admin</h3>
+        <input type="text" id="user" class="form-control mb-2" placeholder="Usuario">
+        <input type="password" id="pass" class="form-control mb-3" placeholder="Contraseña">
+        <button onclick="validar()" class="btn btn-primary w-100">Ingresar</button>
+        <a href="../../index.html" class="btn btn-link text-white mt-2">Volver a la Tienda</a>
+    </div>
+
+    <script>
+        function validar() {
+            const u = document.getElementById('user').value;
+            const p = document.getElementById('pass').value;
+            // Credenciales básicas de ejemplo
+            if(u === 'admin' && p === 'admin123') {
+                localStorage.setItem("admin-session", "true");
+                window.location.href = "admin.html";
+            } else {
+                alert("Credenciales incorrectas");
+            }
+        }
+    </script>
+</body>
+</html>

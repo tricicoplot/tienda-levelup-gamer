@@ -2,42 +2,75 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Admin | Level-Up Gamer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="bg-black text-white">
+
+    <script>
+        if (localStorage.getItem("admin-session") !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+
     <div class="container py-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>Panel Administrativo</h2>
-            <a href="../index.html" class="btn btn-outline-light">Volver a la Tienda</a>
+            <div>
+                <button onclick="cerrarSesion()" class="btn btn-danger">Cerrar Sesión</button>
+                <a href="../../index.html" class="btn btn-outline-light">Volver a la Tienda</a>
+            </div>
         </div>
+
         <div class="table-responsive">
             <table class="table table-dark table-striped table-hover">
                 <thead>
-                    <tr><th>ID</th><th>Producto</th><th>Categoría</th><th>Precio</th><th>Stock</th></tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
                 </thead>
                 <tbody id="admin-productos-tbody"></tbody>
             </table>
         </div>
     </div>
-    <script src="../src/js/auth.js"></script>
+
     <script>
-        verificarAcceso('Administrador');
-        fetch('../data.json')
-            .then(r => r.json())
-            .then(data => {
-                const tbody = document.getElementById('admin-productos-tbody');
-                tbody.innerHTML = data.map(p => `
-                    <tr>
-                        <td>${p.codigo}</td>
-                        <td>${p.nombre}</td>
-                        <td>${p.categoria}</td>
-                        <td>$${p.precio.toLocaleString('es-CL')}</td>
-                        <td>${p.stock}</td>
-                    </tr>
-                `).join("");
-            });
+        // Función para cerrar sesión
+        function cerrarSesion() {
+            localStorage.removeItem("admin-session");
+            window.location.href = "../../index.html";
+        }
+
+        // Cargar productos
+        fetch('/data.json')
+    .then(r => {
+        if (!r.ok) throw new Error("Archivo no encontrado (404)");
+        return r.text(); // Primero leemos como texto para ver qué llega
+    })
+    .then(text => {
+        console.log("Contenido crudo del JSON:", text); // Míralo en la consola F12
+        const data = JSON.parse(text);
+        const tbody = document.getElementById('admin-productos-tbody');
+        tbody.innerHTML = data.map(p => `
+            <tr>
+                <td>${p.codigo}</td>
+                <td>${p.nombre}</td>
+                <td>${p.categoria}</td>
+                <td>$${p.precio.toLocaleString('es-CL')}</td>
+                <td>${p.stock}</td>
+            </tr>
+        `).join("");
+    })
+    .catch(err => {
+        console.error("ERROR DETECTADO:", err);
+        alert("Error al cargar JSON: " + err.message);
+    });
     </script>
 </body>
 </html>

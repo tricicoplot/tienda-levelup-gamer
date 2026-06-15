@@ -1,0 +1,12 @@
+[
+  { "codigo": "JM001", "nombre": "Catan", "categoria": "Juegos de Mesa", "precio": 29990, "imagen": "src/assets/productos/JM001.jpg" },
+  { "codigo": "JM002", "nombre": "Carcassonne", "categoria": "Juegos de Mesa", "precio": 24990, "imagen": "src/assets/productos/JM002.jpg" },
+  { "codigo": "AC001", "nombre": "Controlador Inalámbrico Xbox Series X", "categoria": "Accesorios", "precio": 59990, "imagen": "src/assets/productos/AC001.jpg" },
+  { "codigo": "AC002", "nombre": "Auriculares Gamer HyperX Cloud II", "categoria": "Accesorios", "precio": 79990, "imagen": "src/assets/productos/AC002.jpg" },
+  { "codigo": "CO001", "nombre": "PlayStation 5", "categoria": "Consolas", "precio": 549990, "imagen": "src/assets/productos/CO001.jpg" },
+  { "codigo": "CG001", "nombre": "PC Gamer ASUS ROG Strix", "categoria": "Computadores Gamers", "precio": 1299990, "imagen": "src/assets/productos/CG001.jpg" },
+  { "codigo": "SG001", "nombre": "Silla Gamer Secretlab Titan", "categoria": "Sillas Gamers", "precio": 349990, "imagen": "src/assets/productos/SG001.jpg" },
+  { "codigo": "MS001", "nombre": "Mouse Gamer Logitech G502 HERO", "categoria": "Mouse", "precio": 49990, "imagen": "src/assets/productos/MS001.jpg" },
+  { "codigo": "MP001", "nombre": "Mousepad Razer Goliathus Extended Chroma", "categoria": "Mousepad", "precio": 29990, "imagen": "src/assets/productos/MP001.jpg" },
+  { "codigo": "PP001", "nombre": "Polera Gamer Personalizada 'Level-Up'", "categoria": "Poleras Personalizadas", "precio": 14990, "imagen": "src/assets/productos/PP001.jpg" }
+]
