@@ -10,13 +10,19 @@
 </head>
 <body class="bg-black text-white">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow py-3">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#seccion-home">
-                <img src="src/assets/logo.svg" style="width: 80px; height: 80px;" alt="Logo de Level-Up Gamer" class="me-3">
-                <span class="fs-2 fw-bold">LEVEL-UP GAMER</span>
-            </a>
-            <div class="navbar-nav ms-auto fs-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow py-2">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#seccion-home">
+            <img src="src/assets/logo.svg" style="width: 60px; height: 60px;" alt="Logo de Level-Up Gamer" class="me-2">
+            <span class="fs-3 fw-bold">LEVEL-UP GAMER</span>
+        </a>
+        
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav ms-auto fs-5 text-end py-3 py-lg-0">
                 <a class="nav-link" href="#seccion-home">HOME</a>
                 <a class="nav-link" href="#seccion-productos">PRODUCTOS</a>
                 <a class="nav-link" href="#seccion-nosotros">NOSOTROS</a>
@@ -24,10 +30,11 @@
                 <a class="nav-link" href="#seccion-contacto">CONTACTO</a>
                 <a class="nav-link" href="#seccion-registro">REGISTRO</a>
                 <a class="nav-link" href="#seccion-login">INICIAR SESIÓN</a>
-                <a class="nav-link btn btn-outline-danger ms-lg-3 px-3" href="src/components/admin.html">ADMIN</a>
+                <a class="nav-link btn btn-outline-danger ms-lg-3 px-3 mt-2 mt-lg-0 text-center" href="src/components/admin.html">ADMIN</a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <main class="container py-5">
         <section id="seccion-home" class="mb-5 text-center py-5">
@@ -140,25 +147,25 @@
     </main>
 
     <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content bg-dark text-white border-0 shadow-lg">
-                <div class="modal-header border-0 pb-0">
-                    <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body pt-0">
-                    <div id="carouselDetalle" class="carousel slide" data-bs-interval="false">
-                        <div class="carousel-inner" id="modal-carousel-inner"></div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselDetalle" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselDetalle" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
-                        </button>
-                    </div>
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-0 shadow-lg">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-0">
+                <div id="carouselDetalle" class="carousel slide" data-bs-touch="true" data-bs-interval="false">
+                    <div class="carousel-inner" id="modal-carousel-inner"></div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDetalle" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDetalle" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <footer class="text-center p-5 bg-dark mt-5 text-white">
         <p class="fs-4">&copy; 2026 Level-Up Gamer. Todos los derechos reservados.</p>
