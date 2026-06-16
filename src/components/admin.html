@@ -10,6 +10,7 @@
 <body class="bg-black text-white">
 
     <script>
+        // Control de acceso inmediato antes de renderizar la página
         if (localStorage.getItem("admin-session") !== "true") {
             window.location.href = "login.html";
         }
@@ -47,30 +48,33 @@
             window.location.href = "../../index.html";
         }
 
-        // Cargar productos
-        fetch('/data.json')
-    .then(r => {
-        if (!r.ok) throw new Error("Archivo no encontrado (404)");
-        return r.text(); // Primero leemos como texto para ver qué llega
-    })
-    .then(text => {
-        console.log("Contenido crudo del JSON:", text); // Míralo en la consola F12
-        const data = JSON.parse(text);
-        const tbody = document.getElementById('admin-productos-tbody');
-        tbody.innerHTML = data.map(p => `
-            <tr>
-                <td>${p.codigo}</td>
-                <td>${p.nombre}</td>
-                <td>${p.categoria}</td>
-                <td>$${p.precio.toLocaleString('es-CL')}</td>
-                <td>${p.stock}</td>
-            </tr>
-        `).join("");
-    })
-    .catch(err => {
-        console.error("ERROR DETECTADO:", err);
-        alert("Error al cargar JSON: " + err.message);
-    });
+        // Carga dinámica adaptada para entornos locales y GitHub Pages
+        const esGitHubPages = window.location.hostname.includes('github.io');
+        const baseRaiz = esGitHubPages ? `${window.location.origin}/tienda-levelup-gamer/` : `${window.location.origin}/`;
+        const rutaJson = `${baseRaiz}data.json`;
+
+        fetch(rutaJson)
+            .then(respuesta => {
+                if (!respuesta.ok) throw new Error("No se pudo encontrar el archivo JSON en: " + rutaJson);
+                return respuesta.json();
+            })
+            .then(data => {
+                const tbody = document.getElementById('admin-productos-tbody');
+                tbody.innerHTML = data.map(p => `
+                    <tr>
+                        <td>${p.codigo}</td>
+                        <td>${p.nombre}</td>
+                        <td>${p.categoria}</td>
+                        <td>$${p.precio.toLocaleString('es-CL')}</td>
+                        <td>${p.stock || 0}</td>
+                    </tr>
+                `).join("");
+            })
+            .catch(err => {
+                console.error("Error al cargar la tabla del administrador:", err);
+                const tbody = document.getElementById('admin-productos-tbody');
+                tbody.innerHTML = `<tr><td colspan="5" class="text-danger text-center">Error al cargar datos: ${err.message}</td></tr>`;
+            });
     </script>
 </body>
 </html>
