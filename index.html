@@ -26,7 +26,7 @@
                 <a class="nav-link" href="#seccion-home">HOME</a>
                 <a class="nav-link" href="#seccion-productos">PRODUCTOS</a>
                 <a class="nav-link" href="#seccion-nosotros">NOSOTROS</a>
-                <a class="nav-link" href="#seccion-blogs">BLOGS</a>
+                <a class="nav-link" href="src/components/blogs.html">BLOGS</a>
                 <a class="nav-link" href="#seccion-contacto">CONTACTO</a>
                 <a class="nav-link" href="#seccion-registro">REGISTRO</a>
                 <a class="nav-link" href="#seccion-login">INICIAR SESIÓN</a>
@@ -40,7 +40,10 @@
         <section id="seccion-home" class="mb-5 text-center py-5">
             <h1 class="display-1 fw-bold">TIENDA ONLINE</h1>
             <p class="lead fs-2 mt-3">¡Desafía tus límites con Level-Up Gamer!</p>
-            <img src="src/assets/Levelupimg1.png" class="img-fluid rounded shadow mt-5" alt="Banner de Level-Up Gamer: ¡Desafía tus límites!" style="max-height: 600px; width: 100%;">
+            
+            <div class="banner-container mt-5">
+                <img src="src/assets/Levelupimg1.png" class="banner-img" alt="Banner de Level-Up Gamer: ¡Desafía tus límites!">
+            </div>
         </section>
 
         <section id="seccion-productos" class="mb-5 py-5">
@@ -69,18 +72,23 @@
         </section>
 
         <section id="seccion-blogs" class="mb-5 py-5">
-            <h2 class="display-4 text-center mb-4">Blogs</h2>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100 p-5 bg-secondary text-white border-0 shadow">
-                        <h5 class="fs-3">Noticia #1</h5>
-                        <p class="fs-5">Lanzamientos de tarjetas gráficas y novedades tecnológicas del mundo gamer. [cite: 62, 243]</p>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="display-4 fw-bold" style="font-family: var(--font-header);">Últimas Noticias</h2>
+                <a href="src/components/blogs.html" class="btn btn-outline-neon">Ver todos los blogs</a>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 p-4 bg-dark text-white border-secondary shadow">
+                        <h4 class="text-warning fw-bold" style="font-family: var(--font-header);">CASO CURIOSO #1</h4>
+                        <p class="fs-5 text-secondary mt-2 mb-4">La evolución de las Sillas Gamers y su impacto en la ergonomía actual. Descubre de dónde proviene este peculiar diseño.</p>
+                        <a href="src/components/detalle-blog1.html" class="btn btn-neon mt-auto align-self-start px-4">Leer más</a>
                     </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100 p-5 bg-secondary text-white border-0 shadow">
-                        <h5 class="fs-3">Noticia #2</h5>
-                        <p class="fs-5">Mejores teclados y guías de optimización para mejorar tus partidas. [cite: 62, 243]</p>
+                <div class="col-md-6">
+                    <div class="card h-100 p-4 bg-dark text-white border-secondary shadow">
+                        <h4 class="text-warning fw-bold" style="font-family: var(--font-header);">CASO CURIOSO #2</h4>
+                        <p class="fs-5 text-secondary mt-2 mb-4">El Renacimiento de los Juegos de Mesa en la era digital. Conoce por qué títulos como Catan están rompiendo récords de ventas.</p>
+                        <a href="src/components/detalle-blog2.html" class="btn btn-neon mt-auto align-self-start px-4">Leer más</a>
                     </div>
                 </div>
             </div>

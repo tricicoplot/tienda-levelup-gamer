@@ -221,3 +221,74 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// =============================================================
+// SIMULACIÓN DE INICIO DE SESIÓN Y REGISTRO
+// =============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Simulación para el Inicio de Sesión
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Evita que la página se recargue por defecto
+            
+            // Obtenemos el contenedor padre (la tarjeta oscura)
+            const contenedorCard = loginForm.parentElement;
+            
+            // Reemplazamos el contenido visualmente
+            contenedorCard.innerHTML = `
+                <div class="text-center py-5">
+                    <h2 class="text-success fw-bold display-4 mb-4" style="font-family: var(--font-header);">¡Bienvenido Gamer!</h2>
+                    <p class="fs-4 text-light mb-4">Inicio de sesión exitoso. Preparando tu arsenal...</p>
+                    <div class="spinner-border text-success" role="status" style="width: 3rem; height: 3rem;">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                </div>
+            `;
+            
+            // Simula un tiempo de carga y recarga la página para restaurar todo
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000);
+        });
+    }
+
+    // 2. Simulación para el Registro
+    const registroForm = document.getElementById('registroForm');
+    if (registroForm) {
+        registroForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            
+            const contenedorCard = registroForm.parentElement;
+            
+            // Reemplazamos el contenido con un mensaje de éxito
+            contenedorCard.innerHTML = `
+                <div class="text-center py-5">
+                    <h2 class="text-warning fw-bold display-4 mb-4" style="font-family: var(--font-header);">¡Gracias por registrarte!</h2>
+                    <p class="fs-4 text-light">Tu cuenta ha sido creada con éxito. Ya eres parte oficial de Level-Up Gamer.</p>
+                    <button class="btn btn-outline-warning btn-lg mt-4 px-5 fw-bold" onclick="window.location.reload()">ACEPTAR Y VOLVER</button>
+                </div>
+            `;
+        });
+    }
+});
+
+// 3. Simulación para el Formulario de Contacto
+    const contactoForm = document.getElementById('contactoForm');
+    if (contactoForm) {
+        contactoForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            
+            const contenedorCard = contactoForm.parentElement;
+            
+            // Reemplazamos el contenido con un mensaje de confirmación
+            contenedorCard.innerHTML = `
+                <div class="text-center py-5">
+                    <h2 class="text-primary fw-bold display-4 mb-4" style="font-family: var(--font-header);">¡Mensaje Enviado!</h2>
+                    <p class="fs-4 text-light">Hemos recibido tus comentarios. Nuestro equipo de soporte te contactará a la brevedad.</p>
+                    <button class="btn btn-outline-primary btn-lg mt-4 px-5 fw-bold" onclick="window.location.reload()">ENVIAR OTRO MENSAJE</button>
+                </div>
+            `;
+        });
+    }
