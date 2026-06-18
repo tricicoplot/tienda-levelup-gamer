@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function actualizarInterfazCarrito() {
         const carritoItemsContenedor = document.getElementById('carrito-items');
-        const contadorMenu = document.getElementById('cart-count'); // Indicador del Navbar
+        const contadorMenu = document.getElementById('cart-count'); 
         const subtotalElemento = document.getElementById('carrito-subtotal');
         const totalElemento = document.getElementById('carrito-total');
 
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contadorMenu.textContent = totalItems;
         }
 
-        if (!carritoItemsContenedor) return; // Si no estamos visualizando el Offcanvas/Barra lateral del carrito, salimos
+        if (!carritoItemsContenedor) return; 
 
         if (carrito.length === 0) {
             carritoItemsContenedor.innerHTML = `<p class="text-secondary text-center my-3">El carrito está vacío.</p>`;
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         miModal.show();
     };
 
-    // --- SELECTORES DINÁMICOS DE UBICACIÓN (REGIONES Y COMUNAS) ---
+    // --- SELECTORES DINÁMICOS DE UBICACIÓN (REGIONES Y COMUNAS) PARA LA TIENDA PRINCIPAL ---
     const selectRegion = document.getElementById('select-region');
     const selectComuna = document.getElementById('select-comuna');
 
@@ -227,16 +227,34 @@ document.addEventListener('DOMContentLoaded', () => {
 // =============================================================
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Simulación para el Inicio de Sesión
+    // 1. Simulación y Validación para el Inicio de Sesión
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Evita que la página se recargue por defecto
+            e.preventDefault(); 
             
-            // Obtenemos el contenedor padre (la tarjeta oscura)
+            const emailInput = loginForm.querySelector('input[type="email"]').value.trim().toLowerCase();
+            const passwordInput = loginForm.querySelector('input[type="password"]').value;
+            
+            if (emailInput.length > 100) {
+                alert("Error: El correo no puede superar los 100 caracteres.");
+                return;
+            }
+
+            const dominiosValidos = ['@inacap.cl', '@inacapmail.cl', '@gmail.com'];
+            const correoValido = dominiosValidos.some(dominio => emailInput.endsWith(dominio));
+            
+            if (!correoValido) {
+                alert("Acceso denegado: El correo solo puede ser @inacap.cl, @inacapmail.cl o @gmail.com");
+                return; 
+            }
+
+            if (passwordInput.length < 4 || passwordInput.length > 10) {
+                alert("Error: La contraseña debe tener entre 4 y 10 caracteres.");
+                return;
+            }
+            
             const contenedorCard = loginForm.parentElement;
-            
-            // Reemplazamos el contenido visualmente
             contenedorCard.innerHTML = `
                 <div class="text-center py-5">
                     <h2 class="text-success fw-bold display-4 mb-4" style="font-family: var(--font-header);">¡Bienvenido Gamer!</h2>
@@ -247,22 +265,54 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             
-            // Simula un tiempo de carga y recarga la página para restaurar todo
             setTimeout(() => {
                 window.location.reload();
             }, 3000);
         });
     }
 
-    // 2. Simulación para el Registro
+    // 2. Simulación y Validación para el Registro
     const registroForm = document.getElementById('registroForm');
     if (registroForm) {
         registroForm.addEventListener('submit', (e) => {
             e.preventDefault(); 
             
-            const contenedorCard = registroForm.parentElement;
+            const runInput = document.getElementById('reg-run').value.trim().toUpperCase();
+            const fechaNacimientoInput = registroForm.querySelector('input[type="date"]').value;
             
-            // Reemplazamos el contenido con un mensaje de éxito
+            if (runInput.length < 7 || runInput.length > 9) {
+                alert("Error: El RUN debe tener un mínimo de 7 y un máximo de 9 caracteres.");
+                return;
+            }
+
+            const formatoRunValido = /^[0-9]{6,8}[0-9K]$/.test(runInput);
+            
+            if (!formatoRunValido) {
+                alert("Error: El RUN debe ingresarse estrictamente sin puntos ni guion (Ej: 19011022K).");
+                return;
+            }
+
+            if (!fechaNacimientoInput) {
+                alert("Error: Debes ingresar tu fecha de nacimiento.");
+                return;
+            }
+
+            const fechaNacimiento = new Date(fechaNacimientoInput);
+            const fechaActual = new Date();
+            
+            let edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear();
+            const diferenciaMeses = fechaActual.getMonth() - fechaNacimiento.getMonth();
+            
+            if (diferenciaMeses < 0 || (diferenciaMeses === 0 && fechaActual.getDate() < fechaNacimiento.getDate())) {
+                edad--;
+            }
+
+            if (edad < 18) {
+                alert("Acceso denegado: El sistema de registro es exclusivamente para usuarios mayores de 18 años.");
+                return;
+            }
+            
+            const contenedorCard = registroForm.parentElement;
             contenedorCard.innerHTML = `
                 <div class="text-center py-5">
                     <h2 class="text-warning fw-bold display-4 mb-4" style="font-family: var(--font-header);">¡Gracias por registrarte!</h2>
@@ -272,17 +322,41 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
     }
-});
 
-// 3. Simulación para el Formulario de Contacto
+    // 3. Simulación y Validación para el Formulario de Contacto
     const contactoForm = document.getElementById('contactoForm');
     if (contactoForm) {
         contactoForm.addEventListener('submit', (e) => {
             e.preventDefault(); 
             
-            const contenedorCard = contactoForm.parentElement;
+            const nombreInput = contactoForm.querySelectorAll('input[type="text"]')[0].value.trim();
+            const emailInput = contactoForm.querySelector('input[type="email"]').value.trim().toLowerCase();
+            const comentarioInput = contactoForm.querySelector('textarea').value.trim();
             
-            // Reemplazamos el contenido con un mensaje de confirmación
+            if (nombreInput.length > 100) {
+                alert("Error: El nombre no puede superar los 100 caracteres.");
+                return;
+            }
+
+            if (emailInput.length > 100) {
+                alert("Error: El correo no puede superar los 100 caracteres.");
+                return;
+            }
+
+            const dominiosValidosContacto = ['@inacap.cl', '@profesor.inacap.cl', '@gmail.com'];
+            const correoValido = dominiosValidosContacto.some(dominio => emailInput.endsWith(dominio));
+            
+            if (!correoValido) {
+                alert("Error: Para contacto solo se admiten correos @inacap.cl, @profesor.inacap.cl o @gmail.com");
+                return; 
+            }
+
+            if (comentarioInput.length > 500) {
+                alert("Error: El comentario no puede superar los 500 caracteres.");
+                return;
+            }
+            
+            const contenedorCard = contactoForm.parentElement;
             contenedorCard.innerHTML = `
                 <div class="text-center py-5">
                     <h2 class="text-primary fw-bold display-4 mb-4" style="font-family: var(--font-header);">¡Mensaje Enviado!</h2>
@@ -292,3 +366,104 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
     }
+
+    // =============================================================
+    // LÓGICA DE REGIONES Y COMUNAS (SELECTS ANIDADOS FORMULARIO HTML ESTÁTICO)
+    // =============================================================
+    const datosUbicacion = {
+        "Región Metropolitana de Santiago": ["Santiago", "Puente Alto", "Maipú", "La Florida", "Providencia"],
+        "Región de Valparaíso": ["Valparaíso", "Viña del Mar", "Quilpué", "Villa Alemana"],
+        "Región del Biobío": ["Concepción", "Talcahuano", "Los Ángeles", "Chillán"],
+        "Región de La Araucanía": ["Temuco", "Padre Las Casas", "Villarrica"],
+        "Región de Ñuble": ["Chillán", "San Carlos", "Bulnes"]
+    };
+
+    // Lógica para la vista de Registro de la Tienda
+    const regRegion = document.getElementById('reg-region');
+    const regComuna = document.getElementById('reg-comuna');
+
+    if (regRegion && regComuna) {
+        Object.keys(datosUbicacion).forEach(region => {
+            const option = document.createElement('option');
+            option.value = region;
+            option.textContent = region;
+            regRegion.appendChild(option);
+        });
+
+        regRegion.addEventListener('change', (e) => {
+            const regionSeleccionada = e.target.value;
+            regComuna.innerHTML = '<option value="">-- Seleccione la comuna --</option>';
+            
+            if (regionSeleccionada) {
+                regComuna.disabled = false;
+                datosUbicacion[regionSeleccionada].forEach(comuna => {
+                    const option = document.createElement('option');
+                    option.value = comuna;
+                    option.textContent = comuna;
+                    regComuna.appendChild(option);
+                });
+            } else {
+                regComuna.disabled = true;
+            }
+        });
+    }
+
+    // Lógica para la vista de Nuevo/Editar Usuario (Administrador)
+    const adminRegion = document.getElementById('admin-region');
+    const adminComuna = document.getElementById('admin-comuna');
+
+    if (adminRegion && adminComuna) {
+        Object.keys(datosUbicacion).forEach(region => {
+            const option = document.createElement('option');
+            option.value = region;
+            option.textContent = region;
+            adminRegion.appendChild(option);
+        });
+
+        adminRegion.addEventListener('change', (e) => {
+            const regionSeleccionada = e.target.value;
+            adminComuna.innerHTML = '<option value="">-- Seleccione la comuna --</option>';
+            
+            if (regionSeleccionada) {
+                adminComuna.disabled = false;
+                datosUbicacion[regionSeleccionada].forEach(comuna => {
+                    const option = document.createElement('option');
+                    option.value = comuna;
+                    option.textContent = comuna;
+                    adminComuna.appendChild(option);
+                });
+            } else {
+                adminComuna.disabled = true;
+            }
+        });
+    }
+
+    // =============================================================
+    // LÓGICA DE VALIDACIÓN PARA PRODUCTOS (ADMINISTRADOR)
+    // =============================================================
+    const formNuevoProducto = document.getElementById('formNuevoProducto');
+    
+    if (formNuevoProducto) {
+        formNuevoProducto.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const inputsNumber = formNuevoProducto.querySelectorAll('input[type="number"]');
+            
+            const precioValor = parseFloat(inputsNumber[0].value);
+            const stockValor = parseFloat(inputsNumber[1].value);
+
+            if (precioValor < 0) {
+                alert("Error: El precio no puede ser negativo. El valor mínimo es 0 (producto FREE).");
+                return;
+            }
+
+            if (stockValor < 0 || !Number.isInteger(stockValor)) {
+                alert("Error: El stock debe ser un número entero positivo (sin decimales).");
+                return;
+            }
+
+            alert("¡Éxito! El producto cumple con todas las reglas y ha sido guardado en el inventario.");
+            formNuevoProducto.reset();
+        });
+    }
+});

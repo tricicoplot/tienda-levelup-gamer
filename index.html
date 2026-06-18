@@ -30,6 +30,7 @@
                 <a class="nav-link" href="#seccion-contacto">CONTACTO</a>
                 <a class="nav-link" href="#seccion-registro">REGISTRO</a>
                 <a class="nav-link" href="#seccion-login">INICIAR SESIÓN</a>
+                <a class="nav-link text-warning fw-bold ms-lg-3" href="src/components/carrito.html">🛒 CARRITO (<span id="cart-count">0</span>)</a>
                 <a class="nav-link btn btn-outline-danger ms-lg-3 px-3 mt-2 mt-lg-0 text-center" href="src/components/admin.html">ADMIN</a>
             </div>
         </div>
@@ -108,7 +109,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label fs-5">Comentario</label>
-                        <textarea class="form-control p-3" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                        <textarea class="form-control p-3" rows="4" placeholder="Escribe tu mensaje aquí... (Máx. 500 caracteres)" maxlength="500" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Enviar Mensaje</button>
                 </form>
@@ -123,6 +124,11 @@
                         <label class="form-label fs-5">Nombre Completo</label>
                         <input type="text" class="form-control p-3" placeholder="Tu nombre completo" required>
                     </div>
+                    <!-- Nuevo campo para el RUN -->
+                    <div class="mb-3">
+                        <label class="form-label fs-5">RUN</label>
+                        <input type="text" id="reg-run" class="form-control p-3" placeholder="Ej: 19011022K" required>
+                    </div>
                     <div class="mb-3">
                         <label class="form-label fs-5">Correo Electrónico</label>
                         <input type="email" class="form-control p-3" placeholder="ejemplo@correo.com" required>
@@ -130,6 +136,20 @@
                     <div class="mb-3">
                         <label class="form-label fs-5">Fecha de Nacimiento</label>
                         <input type="date" class="form-control p-3" required>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fs-5">Región</label>
+                            <select id="reg-region" class="form-select p-3 bg-dark text-white border-secondary" required>
+                                <option value="">-- Seleccione la región --</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <label class="form-label fs-5">Comuna</label>
+                            <select id="reg-comuna" class="form-select p-3 bg-dark text-white border-secondary" required disabled>
+                                <option value="">-- Seleccione la comuna --</option>
+                            </select>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Registrarse</button>
                 </form>
@@ -146,7 +166,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label fs-5">Contraseña</label>
-                        <input type="password" class="form-control p-3" placeholder="Tu contraseña" required>
+                        <input type="password" class="form-control p-3" placeholder="Tu contraseña (4 a 10 caracteres)" minlength="4" maxlength="10" required>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Ingresar</button>
                 </form>
