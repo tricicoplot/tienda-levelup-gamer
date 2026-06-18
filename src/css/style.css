@@ -151,3 +151,29 @@ img {
 .sidebar {
     min-height: 85vh;
 }
+
+/* =========================================
+   AJUSTES FINALES DE PROPORCIONES
+   ========================================= */
+
+/* 1. Ajuste del Menú (Navbar) para evitar choque con el logo */
+.navbar-nav .nav-link {
+    font-size: 0.85rem !important; /* Achica levemente la letra */
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+}
+
+/* Limitar el tamaño del logo para que no empuje el menú */
+.navbar-brand img {
+    max-width: 220px !important;
+    height: auto;
+}
+
+/* 2. Límite de altura para la imagen gigante (Hero/Home) */
+/* Asumiendo que la imagen está dentro de la primera sección */
+#seccion-home img {
+    max-height: 550px; /* Tope máximo de altura */
+    width: 100%;
+    object-fit: cover; /* Recorta los bordes sobrantes sin deformar la imagen */
+    object-position: top; /* Centra la imagen en las caras de los personajes */
+}
