@@ -41,6 +41,36 @@
                 <p>Además, el diseño de juegos ha evolucionado enormemente. Atrás quedaron las largas horas de monopolios interminables; los juegos de mesa de hoy cuentan con mecánicas elegantes, cero eliminación de jugadores tempranas y duraciones ajustables. Si aún no has probado esta tendencia, te invitamos a revisar nuestra categoría de Juegos de Mesa en el catálogo y reunir a tu grupo de amigos.</p>
             </section>
         </article>
+        <section class="mx-auto mt-5 pt-4 border-top border-secondary" style="max-width: 800px;">
+            <h3 class="fw-bold text-warning mb-4" style="font-family: var(--font-header);">Reseñas de la Comunidad</h3>
+            
+            <div class="card bg-dark text-white border-secondary mb-4 p-3 shadow-sm">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="fw-bold text-primary">GamerPro99</span>
+                    <span class="text-warning">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="mb-0 text-secondary">Excelente información, ¡ahora entiendo por qué mi espalda ya no duele después de 4 horas de juego! Totalmente recomendado invertir en una buena silla.</p>
+            </div>
+
+            <div class="card bg-black text-white border-primary p-4 mt-4">
+                <h5 class="mb-3">Deja tu propia reseña</h5>
+                <form onsubmit="event.preventDefault(); alert('¡Gracias por tu reseña! Pasará por moderación antes de publicarse.'); this.reset();">
+                    <div class="mb-3">
+                        <label class="form-label text-secondary">Calificación</label>
+                        <select class="form-select bg-dark text-white border-secondary" required>
+                            <option value="">Selecciona estrellas...</option>
+                            <option value="5">⭐⭐⭐⭐⭐ (Excelente)</option>
+                            <option value="4">⭐⭐⭐⭐ (Muy Bueno)</option>
+                            <option value="3">⭐⭐⭐ (Bueno)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control bg-dark text-white border-secondary" rows="3" placeholder="Escribe tu opinión aquí..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Publicar Reseña</button>
+                </form>
+            </div>
+        </section>
     </main>
 
     <footer class="text-center p-4 bg-dark mt-5 text-secondary border-top border-secondary">

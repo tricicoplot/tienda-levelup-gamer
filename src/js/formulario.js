@@ -116,14 +116,19 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (todoOk) {
                 const codDescuento = document.getElementById('regCodigoDescuento').value.toUpperCase();
-                let msj = "\n\n¡Registro de usuario procesado con éxito!";
-                
+                const codReferido = document.getElementById('regReferido').value.trim(); // <-- Lee el nuevo input
+    
+                let msj = "¡Registro de usuario procesado con éxito!";
+    
                 if (codDescuento === 'DUOC20') {
-                    msj += "\n¡Cupón DUOC20 aplicado! Obtienes 20% de descuento vitalicio.";
-                } else if (codDescuento !== '') {
-                    msj += "\nEl cupón ingresado no es válido, pero el registro fue exitoso.";
+                    msj += "\n- ¡Cupón DUOC20 aplicado! Obtienes 20% de descuento vitalicio.";
                 }
-                
+    
+                 // Lógica de Gamificación integrada
+                if (codReferido !== '') {
+                    msj += `\n- ¡Código de referido detectado! Has ganado 500 Puntos LevelUp por usar el código de tu amigo.`;
+                }
+    
                 alert(msj);
                 formRegistro.reset();
                 selComuna.disabled = true;

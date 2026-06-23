@@ -177,3 +177,26 @@ img {
     object-fit: cover; /* Recorta los bordes sobrantes sin deformar la imagen */
     object-position: top; /* Centra la imagen en las caras de los personajes */
 }
+
+/* =============================================================
+   BOTÓN FLOTANTE WHATSAPP
+   ============================================================= */
+.btn-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #ffffff !important;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+}

@@ -27,12 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
         grid.innerHTML = lista.map((p, index) => `
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="card h-100 shadow-sm bg-dark border-secondary">
-                    <img class="card-img-top" src="${p.imagen}" alt="Imagen de ${p.nombre}" style="height: 200px; object-fit: cover;"/>
+                    <img class="card-img-top" src="${p.imagen}" alt="Imagen de ${p.nombre}" 
+                         style="height: 200px; object-fit: contain; background-color: #111; cursor: pointer;"
+                         onclick="abrirCarrusel('${p.codigo}')" title="Haz clic para ver más grande"/>
+                    
                     <div class="card-body d-flex flex-column text-white">
                         <span class="badge bg-secondary border border-secondary mb-2 align-self-start">${p.categoria}</span>
                         <h5 class="card-title fw-bold">${p.nombre}</h5>
                         <p class="card-text text-muted small flex-grow-1">${p.descripcion || ''}</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3">
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
                             <span class="card-price fw-bold text-warning fs-5">$${p.precio.toLocaleString('es-CL')}</span>
                             <button class="btn btn-primary btn-sm fw-bold" onclick="agregarAlCarrito('${p.codigo}')">Añadir</button>
                         </div>
@@ -123,4 +126,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (subtotalElemento) subtotalElemento.innerText = `$${subtotal.toLocaleString('es-CL')}`;
         if (totalElemento) totalElemento.innerText = `$${subtotal.toLocaleString('es-CL')}`;
     }
+   // 3. MOTOR DEL CARRUSEL (MODAL BOOTSTRAP) - VERSIÓN CON TODAS LAS FOTOS
+    window.abrirCarrusel = (codigo) => {
+        const carouselInner = document.getElementById('modal-carousel-inner');
+        if (!carouselInner) return;
+
+        // Recorremos TODOS los productos y los metemos al carrusel.
+        // Solo le ponemos la clase "active" (visible) al que el usuario clickeó.
+        carouselInner.innerHTML = productosGlobales.map(p => `
+            <div class="carousel-item ${p.codigo === codigo ? 'active' : ''}">
+                <img src="${p.imagen}" class="d-block w-100 rounded" alt="Imagen de ${p.nombre}" style="height: 400px; object-fit: contain; background-color: #000;">
+                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2 border border-secondary">
+                    <h5 class="text-warning fw-bold">${p.nombre}</h5>
+                    <p class="mb-0 text-white">${p.descripcion || ''}</p>
+                </div>
+            </div>
+        `).join("");
+
+        // Invocamos el modal de Bootstrap y lo mostramos
+        const modalElement = document.getElementById('productModal');
+        const modal = new bootstrap.Modal(modalElement);
+        modal.show();
+    };
 });
