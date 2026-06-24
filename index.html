@@ -53,21 +53,29 @@
         </section>
 
         <section id="seccion-nosotros" class="mb-5 p-5 bg-dark rounded shadow">
-            <h2 class="display-4 text-center mb-5">Sobre Nosotros</h2>
+            <h2 class="display-4 text-center mb-5" style="font-family: var(--font-header);">Sobre Nosotros</h2>
+            
             <div class="row mb-5">
                 <div class="col-12 text-center">
-                    <h4 class="text-primary fs-3">Enunciado</h4>
-                    <p class="fs-5 text-secondary">Level-Up Gamer es una tienda online dedicada a satisfacer las necesidades de los entusiastas de los videojuegos en Chile. Lanzada hace dos años como respuesta a la creciente demanda durante la pandemia, Leves-Up Gamer ofrece una amplia gama de productos para gamers, desde consolas y accesorios hasta computadores y sillas especializadas. Aunque no cuenta con una ubicación física, realiza despachos a todo el país.</p>
+                    <div class="caja-especificaciones">
+                        <h4 class="text-primary fs-3 fw-bold">Enunciado</h4>
+                        <p class="fs-5 text-secondary mb-0">Level-Up Gamer es una tienda online dedicada a satisfacer las necesidades de los entusiastas de los videojuegos en Chile. Lanzada hace dos años como respuesta a la creciente demanda durante la pandemia, Leves-Up Gamer ofrece una amplia gama de productos para gamers, desde consolas y accesorios hasta computadores y sillas especializadas. Aunque no cuenta con una ubicación física, realiza despachos a todo el país.</p>
+                    </div>
                 </div>
             </div>
-            <div class="row">
+
+            <div class="row g-4">
                 <div class="col-md-6">
-                    <h4 class="text-primary fs-3">Misión</h4>
-                    <p class="fs-5 text-secondary">Proporcionar productos de alta calidad para gamers en todo Chile, ofreciendo una experiencia de compra única y personalizada, con un enfoque en la satisfacción del cliente y el crecimiento de la comunidad gamer.</p>
+                    <div class="caja-especificaciones h-100">
+                        <h4 class="text-primary fs-3 fw-bold">Misión</h4>
+                        <p class="fs-5 text-secondary mb-0">Proporcionar productos de alta calidad para gamers en todo Chile, ofreciendo una experiencia de compra única y personalizada, con un enfoque en la satisfacción del cliente y el crecimiento de la comunidad gamer.</p>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <h4 class="text-primary fs-3">Visión</h4>
-                    <p class="fs-5 text-secondary">Ser la tienda online líder en productos para gamers en Chile, reconocida por su innovación, servicio al cliente excepcional, y un programa de fidelización basado en gamificación que recompense a nuestros clientes más fieles.</p>
+                    <div class="caja-especificaciones h-100">
+                        <h4 class="text-primary fs-3 fw-bold">Visión</h4>
+                        <p class="fs-5 text-secondary mb-0">Ser la tienda online líder en productos para gamers en Chile, reconocida por su innovación, servicio al cliente excepcional, y un programa de fidelización basado en gamificación que recompense a nuestros clientes más fieles.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -80,15 +88,15 @@
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="card h-100 p-4 bg-dark text-white border-secondary shadow">
-                        <h4 class="text-warning fw-bold" style="font-family: var(--font-header);">CASO CURIOSO #1</h4>
-                        <p class="fs-5 text-secondary mt-2 mb-4">La evolución de las Sillas Gamers y su impacto en la ergonomía actual. Descubre de dónde proviene este peculiar diseño.</p>
+                        <h4 class="text-warning fw-bold" style="font-family: var(--font-header);">EL SECRETO DEL AUDIO</h4>
+                        <p class="fs-5 text-secondary mt-2 mb-4">¿Por qué los profesionales siempre ganan los 1v1? Descubre cómo el sonido envolvente te da una ventaja táctica sobre tus rivales.</p>
                         <a href="src/components/detalle-blog1.html" class="btn btn-neon mt-auto align-self-start px-4">Leer más</a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card h-100 p-4 bg-dark text-white border-secondary shadow">
-                        <h4 class="text-warning fw-bold" style="font-family: var(--font-header);">CASO CURIOSO #2</h4>
-                        <p class="fs-5 text-secondary mt-2 mb-4">El Renacimiento de los Juegos de Mesa en la era digital. Conoce por qué títulos como Catan están rompiendo récords de ventas.</p>
+                        <h4 class="text-warning fw-bold" style="font-family: var(--font-header);">EL DILEMA DEL SETUP</h4>
+                        <p class="fs-5 text-secondary mt-2 mb-4">La eterna batalla: ¿Consola de última generación o PC Master Race? Analizamos cuál es la mejor inversión para este año.</p>
                         <a href="src/components/detalle-blog2.html" class="btn btn-neon mt-auto align-self-start px-4">Leer más</a>
                     </div>
                 </div>
@@ -100,21 +108,21 @@
                 <h2 class="display-4 mb-4">Contacto</h2>
                 <form id="contactoForm" novalidate>
                     <div class="mb-3">
-                        <label class="form-label fs-5">Nombre Completo *</label>
-                        <input type="text" id="contactoNombre" class="form-control" placeholder="Tu nombre" required>
+                        <label class="form-label text-secondary">Nombre Completo *</label>
+                        <input type="text" id="contactoNombre" class="form-control bg-light text-dark border-secondary" placeholder="Tu nombre" required>
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fs-5">Correo Electrónico *</label>
-                        <input type="email" id="contactoEmail" class="form-control" placeholder="ejemplo@inacap.cl" required>
+                        <label class="form-label text-secondary">Correo Electrónico *</label>
+                        <input type="email" id="contactoEmail" class="form-control bg-light text-dark border-secondary" placeholder="ejemplo@inacap.cl" required>
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fs-5">Comentario *</label>
-                        <textarea id="contactoComentario" class="form-control" rows="4" placeholder="Escribe tu mensaje aquí... (Máx. 500 caracteres)" maxlength="500" required></textarea>
+                        <label class="form-label text-secondary">Comentario *</label>
+                        <textarea id="contactoComentario" class="form-control bg-light text-dark border-secondary" rows="4" placeholder="Escribe tu mensaje aquí... (Máx. 500 caracteres)" maxlength="500" required></textarea>
                         <div class="invalid-feedback"></div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Enviar Mensaje</button>
+                    <button type="submit" class="btn btn-neon w-100 py-2 mt-3">Enviar Mensaje</button>
                 </form>
             </div>
         </section>
@@ -124,8 +132,8 @@
         <h2 class="display-4 mb-4">Registro de Usuario</h2>
         <form id="registroForm" novalidate>
             <div class="mb-3">
-                <label class="form-label fs-5">RUN *</label>
-                <input type="text" id="regRun" class="form-control" placeholder="Ej: 19011022K" required>
+                <label class="form-label text-secondary">RUN *</label>
+                <input type="text" id="regRun" class="form-control bg-light text-dark border-secondary" placeholder="Ej: 19011022K" required>
                 <div class="invalid-feedback"></div>
             </div>
             <div class="row mb-3">
@@ -152,8 +160,8 @@
             </div>
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <label class="form-label fs-5">Región *</label>
-                    <select id="select-region" class="form-select bg-dark text-white border-secondary" required>
+                    <label class="form-label text-secondary">Región *</label>
+                    <select id="select-region" class="form-select bg-light text-dark border-secondary" required>
                         <option value="">-- Seleccione la región --</option>
                         <option value="RM">Región Metropolitana</option>
                         <option value="V">Región de Valparaíso</option>
@@ -187,24 +195,39 @@
     </div>
 </section>
 
-        <section id="seccion-login" class="mb-5 py-5">
-            <div class="card p-5 bg-dark text-white shadow">
-                <h2 class="display-4 mb-4">Iniciar Sesión</h2>
-                <form id="loginForm" novalidate>
-                    <div class="mb-3">
-                        <label class="form-label fs-5">Correo Electrónico *</label>
-                        <input type="email" id="loginEmail" class="form-control" placeholder="ejemplo@inacap.cl" required>
-                        <div class="invalid-feedback"></div>
+    <section id="seccion-login" class="py-5">
+        <div class="container">
+            <div class="card shadow-lg border-secondary">
+                <div class="row g-0">
+                    
+                    <div class="col-md-5 d-none d-md-block">
+                        <img src="src/assets/Levelupimg1.png" class="img-fluid rounded-start h-100 w-100" alt="Equipo Level-Up" style="object-fit: cover; object-position: center;">
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label fs-5">Contraseña *</label>
-                        <input type="password" id="loginPassword" class="form-control" placeholder="Tu contraseña (4 a 10 caracteres)" minlength="4" maxlength="10" required>
-                        <div class="invalid-feedback"></div>
+
+                    <div class="col-md-7">
+                        <div class="card-body bg-dark text-white rounded-end h-100 p-4 p-lg-5">
+                            
+                            <h2 class="text-center mb-4 text-warning fw-bold" style="font-family: var(--font-header);">Iniciar Sesión</h2>
+                            
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label class="form-label text-secondary">Correo Electrónico *</label>
+                                    <input type="email" id="logCorreo" class="form-control bg-light text-dark border-secondary" placeholder="ejemplo@inacap.cl">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label text-secondary">Contraseña *</label>
+                                    <input type="password" id="logPass" class="form-control bg-light text-dark border-secondary" placeholder="Tu contraseña (4 a 10 caracteres)">
+                                </div>
+                                <button type="submit" class="btn btn-neon w-100 py-2">Ingresar al Sistema</button>
+                            </form>
+
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Ingresar</button>
-                </form>
+
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
     </main>
 
     <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
@@ -217,10 +240,10 @@
                 <div id="carouselDetalle" class="carousel slide" data-bs-touch="true" data-bs-interval="false">
                     <div class="carousel-inner" id="modal-carousel-inner"></div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselDetalle" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselDetalle" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     </button>
                 </div>
             </div>
@@ -232,9 +255,9 @@
 
     <footer class="text-center p-5 bg-dark mt-5 text-white">
         <p class="fs-4">&copy; 2026 Level-Up Gamer. Todos los derechos reservados.</p>
-   <a href="https://wa.me/56912345678?text=Hola,%20necesito%20ayuda%20con%20la%20tienda%20Level-Up%20Gamer" class="btn-whatsapp shadow-lg" target="_blank">
-    💬 Soporte Técnico
-</a>
+        <a href="https://wa.me/56912345678?text=Hola,%20necesito%20ayuda%20con%20la%20tienda%20Level-Up%20Gamer" class="btn-whatsapp shadow-lg" target="_blank">
+            💬 Soporte Técnico 
+        </a>
     </footer>
 
     <script src="src/js/app.js"></script>

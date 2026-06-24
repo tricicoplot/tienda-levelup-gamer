@@ -172,10 +172,12 @@ img {
 /* 2. Límite de altura para la imagen gigante (Hero/Home) */
 /* Asumiendo que la imagen está dentro de la primera sección */
 #seccion-home img {
-    max-height: 550px; /* Tope máximo de altura */
+    max-height: 700px; /* Tamaño máximo para que no se desproporcione */
     width: 100%;
-    object-fit: cover; /* Recorta los bordes sobrantes sin deformar la imagen */
-    object-position: top; /* Centra la imagen en las caras de los personajes */
+    height: auto; /* Altura fluida natural */
+    object-fit: contain; /* Prohíbe terminantemente que se corte la imagen */
+    margin: 0 auto; /* Mantiene imagen centrada en la pantalla */
+    display: block;
 }
 
 /* =============================================================
@@ -199,4 +201,53 @@ img {
 .btn-whatsapp:hover {
     background-color: #128C7E;
     transform: scale(1.1);
+}
+
+/* =============================================================
+   FORMULARIOS UNIFICADOS Y SIMÉTRICOS (DISEÑO PREMIUM)
+   ============================================================= */
+#seccion-contacto .card,
+#seccion-registro .card,
+#seccion-login .card {
+    max-width: 800px; /* Un poco más amplio para que el contenido interior respire */
+    width: 92%; /* El 92% evita que la tarjeta choque con los bordes en ninguna pantalla */
+    margin: 0 auto; /* Centrado perfecto */
+    border: 1px solid rgba(30, 144, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#seccion-contacto .card:hover,
+#seccion-registro .card:hover,
+#seccion-login .card:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 30px rgba(30, 144, 255, 0.15);
+}
+
+/* =============================================================
+   MANTENER EL FOOTER SIEMPRE AL FONDO (COMPLEMENTO)
+   ============================================================= */
+/* El main se estira para rellenar el espacio vacío de la pantalla */
+main {
+    flex: 1; 
+}
+
+/* El pie de página se empuja automáticamente hacia el margen inferior */
+footer {
+    margin-top: auto; 
+}
+/* =============================================================
+   AJUSTE DE CONTRASTE PARA CAJA DE ESPECIFICACIONES (PROYECTOR)
+   ============================================================= */
+.caja-especificaciones {
+    /* Opción 1: Fondo negro puro intenso para que el texto gris claro resalte */
+    background-color: #000000 !important; 
+    
+    /* Opción 2: Si el texto es muy oscuro, borra la línea de arriba y usa esta para un fondo claro: */
+    /* background-color: #e0e0e0 !important; */
+    
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Un borde sutil para enmarcar el recuadro */
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.8); /* Sombra interna para darle profundidad tecnológica */
 }

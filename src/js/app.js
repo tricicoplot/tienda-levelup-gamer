@@ -126,19 +126,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (subtotalElemento) subtotalElemento.innerText = `$${subtotal.toLocaleString('es-CL')}`;
         if (totalElemento) totalElemento.innerText = `$${subtotal.toLocaleString('es-CL')}`;
     }
-   // 3. MOTOR DEL CARRUSEL (MODAL BOOTSTRAP) - VERSIÓN CON TODAS LAS FOTOS
+  // 3. MOTOR DEL CARRUSEL (MODAL BOOTSTRAP) - VERSIÓN RESPONSIVA
     window.abrirCarrusel = (codigo) => {
         const carouselInner = document.getElementById('modal-carousel-inner');
         if (!carouselInner) return;
 
-        // Recorremos TODOS los productos y los metemos al carrusel.
-        // Solo le ponemos la clase "active" (visible) al que el usuario clickeó.
         carouselInner.innerHTML = productosGlobales.map(p => `
             <div class="carousel-item ${p.codigo === codigo ? 'active' : ''}">
                 <img src="${p.imagen}" class="d-block w-100 rounded" alt="Imagen de ${p.nombre}" style="height: 400px; object-fit: contain; background-color: #000;">
-                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2 border border-secondary">
-                    <h5 class="text-warning fw-bold">${p.nombre}</h5>
-                    <p class="mb-0 text-white">${p.descripcion || ''}</p>
+                
+                <div class="carousel-caption bg-dark bg-opacity-75 rounded p-2 border border-secondary" style="bottom: 0; left: 0; right: 0;">
+                    <h5 class="text-warning fw-bold mb-1">${p.nombre}</h5>
+                    <p class="mb-0 text-white small">${p.descripcion || ''}</p>
                 </div>
             </div>
         `).join("");
@@ -148,4 +147,65 @@ document.addEventListener('DOMContentLoaded', () => {
         const modal = new bootstrap.Modal(modalElement);
         modal.show();
     };
+    // =============================================================
+    // SISTEMA DE RESEÑAS TEMPORALES (SESSION STORAGE)
+    // =============================================================
+    const formResena = document.getElementById('form-resena');
+    const listaResenas = document.getElementById('lista-resenas');
+
+    if (formResena && listaResenas) {
+        const blogActual = window.location.pathname.split('/').pop() || 'blog';
+        const claveStorage = `reseñas_${blogActual}`;
+
+        const agregarReseñaAlHTML = (autor, estrellas, texto) => {
+            const div = document.createElement('div');
+            div.className = "card bg-dark text-white border-info mb-4 p-3 shadow-sm"; 
+            div.innerHTML = `
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="fw-bold text-info">${autor}</span>
+                    <span class="text-warning">${estrellas}</span>
+                </div>
+                <p class="mb-0 text-secondary">${texto}</p>
+            `;
+            listaResenas.appendChild(div);
+        };
+
+        // Cargar las reseñas previas al iniciar la página
+        const reseñasGuardadas = JSON.parse(sessionStorage.getItem(claveStorage)) || [];
+        reseñasGuardadas.forEach(res => {
+            agregarReseñaAlHTML(res.autor, res.estrellas, res.texto);
+        });
+
+        // Evento al enviar el formulario
+        formResena.addEventListener('submit', (e) => {
+            e.preventDefault(); // ESTO ES VITAL: Detiene la recarga automática de la página
+            
+            const inputNombre = document.getElementById('nombre-resena');
+            const inputEstrellas = document.getElementById('estrellas-resena');
+            const inputTexto = document.getElementById('texto-resena');
+
+            // Protección en caso de que falte un ID en el HTML
+            if (!inputNombre || !inputEstrellas || !inputTexto) {
+                alert("Error técnico: No se encontraron las cajas de texto en el HTML.");
+                return;
+            }
+
+            const nombreAutor = inputNombre.value.trim();
+            const cantidadEstrellas = Number(inputEstrellas.value);
+            const textoComentario = inputTexto.value.trim();
+            const estrellasDibujadas = '⭐'.repeat(cantidadEstrellas);
+
+            const nuevaReseña = { autor: nombreAutor, estrellas: estrellasDibujadas, texto: textoComentario };
+
+            // Guardar en el almacenamiento temporal
+            reseñasGuardadas.push(nuevaReseña);
+            sessionStorage.setItem(claveStorage, JSON.stringify(reseñasGuardadas));
+
+            // Dibujar en pantalla
+            agregarReseñaAlHTML(nuevaReseña.autor, nuevaReseña.estrellas, nuevaReseña.texto);
+            
+            formResena.reset();
+            alert('¡Gracias por tu reseña! Ha sido publicada temporalmente.');
+        });
+    }
 });

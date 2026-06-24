@@ -24,40 +24,47 @@
     <main class="container py-5">
         <article class="mx-auto" style="max-width: 800px;">
             <header class="text-center mb-5">
-                <h1 class="display-4 fw-bold text-warning" style="font-family: var(--font-header);">CASO CURIOSO #2</h1>
-                <h2 class="text-light">El Renacimiento de los Juegos de Mesa</h2>
+                <h1 class="display-4 fw-bold text-warning" style="font-family: var(--font-header);">EL DILEMA DEL SETUP</h1>
+                <h2 class="text-light">¿Consola de última generación o PC Master Race?</h2>
             </header>
 
             <figure class="mb-4 text-center">
-                <img src="../assets/logo.svg" class="img-fluid rounded border border-secondary p-4 bg-dark shadow" alt="Juegos de mesa modernos">
-                <figcaption class="text-muted mt-2 small">Una alternativa analógica en un mundo digital.</figcaption>
+                <img src="../assets/productos/CO001.jpg" class="img-fluid rounded border border-secondary p-3 bg-dark shadow mx-auto d-block" alt="PlayStation 5" style="max-height: 400px; object-fit: contain;">
+                <figcaption class="text-muted mt-2 small">La guerra por el rendimiento definitivo en tu estación de batalla.</figcaption>
             </figure>
 
             <section class="fs-5 text-secondary" style="line-height: 1.8;">
-                <p>Vivimos en la era de los gráficos fotorrealistas y la realidad virtual inmersiva, sin embargo, el mercado de los juegos de mesa está viviendo una edad dorada. Títulos como <strong>Catan</strong> y <strong>Carcassonne</strong> han vendido millones de copias, convirtiéndose en fenómenos globales.</p>
+                <p>Es la pregunta más antigua en la comunidad gamer: ¿Qué es mejor, armar un PC o comprar la consola del momento? Este año, la respuesta es más compleja que nunca debido a los increíbles saltos tecnológicos en ambos frentes.</p>
                 
-                <p>¿Qué explica este resurgimiento? Muchos expertos de la industria apuntan a la "fatiga digital". Después de pasar todo el día mirando pantallas por trabajo o estudios, muchas personas buscan entretenimiento analógico y táctil. Los juegos de mesa modernos fomentan la interacción social cara a cara, obligando a los jugadores a negociar, colaborar y competir en el mundo real.</p>
+                <p>Por un lado, la <strong>PlayStation 5</strong> ofrece una comodidad inigualable. La experiencia de encender el televisor, tirarse en el sofá y disfrutar de gráficos impresionantes sin preocuparse por actualizar drivers o problemas de compatibilidad es impagable. Sus tiempos de carga ultrarrápidos y juegos exclusivos la hacen una opción sólida para quienes buscan disfrutar sin complicaciones.</p>
                 
-                <p>Además, el diseño de juegos ha evolucionado enormemente. Atrás quedaron las largas horas de monopolios interminables; los juegos de mesa de hoy cuentan con mecánicas elegantes, cero eliminación de jugadores tempranas y duraciones ajustables. Si aún no has probado esta tendencia, te invitamos a revisar nuestra categoría de Juegos de Mesa en el catálogo y reunir a tu grupo de amigos.</p>
+                <p>Por otro lado, la versatilidad de la "PC Master Race" es imbatible. Un equipo como el <strong>PC Gamer ASUS ROG Strix</strong> no solo aplasta en rendimiento permitiéndote jugar a más de 144 FPS reales, sino que te abre las puertas al modding, la personalización extrema y la multitarea para hacer streaming de alta calidad. Al final del día, en Level-Up Gamer creemos que no hay decisión incorrecta, ¡todo depende de si prefieres el teclado y el mouse, o la vibración de un control en tus manos!</p>
             </section>
         </article>
         <section class="mx-auto mt-5 pt-4 border-top border-secondary" style="max-width: 800px;">
             <h3 class="fw-bold text-warning mb-4" style="font-family: var(--font-header);">Reseñas de la Comunidad</h3>
             
-            <div class="card bg-dark text-white border-secondary mb-4 p-3 shadow-sm">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span class="fw-bold text-primary">GamerPro99</span>
-                    <span class="text-warning">⭐⭐⭐⭐⭐</span>
+            <div id="lista-resenas">
+                <div class="card bg-dark text-white border-secondary mb-4 p-3 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="fw-bold text-primary">GamerPro99</span>
+                        <span class="text-warning">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="mb-0 text-secondary">Excelente información, ¡ahora entiendo por qué mi espalda ya no duele después de 4 horas de juego! Totalmente recomendado invertir en una buena silla.</p>
                 </div>
-                <p class="mb-0 text-secondary">Excelente información, ¡ahora entiendo por qué mi espalda ya no duele después de 4 horas de juego! Totalmente recomendado invertir en una buena silla.</p>
             </div>
 
             <div class="card bg-black text-white border-primary p-4 mt-4">
                 <h5 class="mb-3">Deja tu propia reseña</h5>
-                <form onsubmit="event.preventDefault(); alert('¡Gracias por tu reseña! Pasará por moderación antes de publicarse.'); this.reset();">
+                
+                <form id="form-resena">
+                    <div class="mb-3">
+                        <label class="form-label text-secondary">Tu Nombre o Apodo</label>
+                        <input type="text" id="nombre-resena" class="form-control bg-dark text-white border-secondary" placeholder="Ej: GamerPro99" required>
+                    </div>
                     <div class="mb-3">
                         <label class="form-label text-secondary">Calificación</label>
-                        <select class="form-select bg-dark text-white border-secondary" required>
+                        <select id="estrellas-resena" class="form-select bg-dark text-white border-secondary" required>
                             <option value="">Selecciona estrellas...</option>
                             <option value="5">⭐⭐⭐⭐⭐ (Excelente)</option>
                             <option value="4">⭐⭐⭐⭐ (Muy Bueno)</option>
@@ -65,7 +72,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control bg-dark text-white border-secondary" rows="3" placeholder="Escribe tu opinión aquí..." required></textarea>
+                        <textarea id="texto-resena" class="form-control bg-dark text-white border-secondary" rows="3" placeholder="Escribe tu opinión aquí..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-outline-primary">Publicar Reseña</button>
                 </form>
@@ -75,6 +82,9 @@
 
     <footer class="text-center p-4 bg-dark mt-5 text-secondary border-top border-secondary">
         <p class="mb-0">&copy; 2026 Level-Up Gamer. Todos los derechos reservados.</p>
+        <a href="https://wa.me/56912345678?text=Hola,%20necesito%20ayuda%20con%20la%20tienda%20Level-Up%20Gamer" class="btn-whatsapp shadow-lg" target="_blank">
+            💬 Soporte Técnico 
+        </a>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

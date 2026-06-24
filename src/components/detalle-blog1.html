@@ -24,40 +24,47 @@
     <main class="container py-5">
         <article class="mx-auto" style="max-width: 800px;">
             <header class="text-center mb-5">
-                <h1 class="display-4 fw-bold text-warning" style="font-family: var(--font-header);">CASO CURIOSO #1</h1>
-                <h2 class="text-light">La evolución de las Sillas Gamers</h2>
+                <h1 class="display-4 fw-bold text-warning" style="font-family: var(--font-header);">EL SECRETO DEL AUDIO</h1>
+                <h2 class="text-light">Escucha a tu enemigo antes de que aparezca en pantalla</h2>
             </header>
 
             <figure class="mb-4 text-center">
-                <img src="../assets/logo.svg" class="img-fluid rounded border border-secondary p-4 bg-dark shadow" alt="Evolución de sillas gamers">
-                <figcaption class="text-muted mt-2 small">La ergonomía moderna aplicada a largas horas de juego.</figcaption>
+                <img src="../assets/productos/AC002.jpg" class="img-fluid rounded border border-secondary p-3 bg-dark shadow mx-auto d-block" alt="HyperX Cloud II" style="max-height: 400px; object-fit: contain;">
+                <figcaption class="text-muted mt-2 small">El sonido envolvente es la nueva ventaja táctica en los eSports.</figcaption>
             </figure>
 
             <section class="fs-5 text-secondary" style="line-height: 1.8;">
-                <p>Las sillas gamers se han convertido en un elemento básico en las habitaciones y oficinas de entusiastas de los videojuegos en todo el mundo. Pero, ¿alguna vez te has preguntado de dónde provienen sus peculiares diseños con estilo de coche de carreras?</p>
+                <p>¿Te ha pasado que estás en el círculo final de una partida de Battle Royale, tienes la mira preparada, y de repente te eliminan por la espalda sin que te dieras cuenta? Si esto te suena familiar, el problema no son tus reflejos, es tu equipo de sonido.</p>
                 
-                <p>Todo comenzó a principios de los años 2000, cuando una empresa fabricante de asientos para autos deportivos notó una caída en sus ventas. Decidieron adaptar sus asientos anatómicos, que estaban diseñados para mantener a los pilotos de carreras seguros y cómodos durante impactos y fuerzas G, y ponerles una base con ruedas. El resultado fue la primera silla gamer de la historia.</p>
+                <p>En el mundo competitivo de hoy, depender de los altavoces del monitor o de auriculares básicos es como jugar con los ojos vendados. El sonido envolvente 7.1 ha revolucionado la forma en que interactuamos con el entorno virtual. Permite triangular exactamente si los pasos vienen del piso de arriba, de la izquierda o desde la maleza detrás de ti.</p>
                 
-                <p>El diseño de butaca tipo "bucket" ofrece soporte lateral para la espalda, además de incluir almohadillas lumbares y cervicales. Hoy en día, en Level-Up Gamer, ofrecemos modelos de marcas reconocidas como Secretlab Titan, que llevan esta tecnología al extremo con espumas de alta densidad y ajustes magnéticos para que nada interrumpa tus sesiones de juego.</p>
+                <p>Equipos profesionales, como los <strong>Auriculares Gamer HyperX Cloud II</strong> que tenemos en nuestro catálogo, incorporan tarjetas de sonido avanzadas y almohadillas de espuma viscoelástica que aíslan el ruido exterior. Esto no solo te da una ventaja injusta sobre tus oponentes, sino que te permite mantener la concentración durante maratones de juego. Si quieres subir de rango esta temporada, ya sabes por dónde empezar a mejorar tu setup.</p>
             </section>
         </article>
         <section class="mx-auto mt-5 pt-4 border-top border-secondary" style="max-width: 800px;">
             <h3 class="fw-bold text-warning mb-4" style="font-family: var(--font-header);">Reseñas de la Comunidad</h3>
             
-            <div class="card bg-dark text-white border-secondary mb-4 p-3 shadow-sm">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span class="fw-bold text-primary">GamerPro99</span>
-                    <span class="text-warning">⭐⭐⭐⭐⭐</span>
+            <div id="lista-resenas">
+                <div class="card bg-dark text-white border-secondary mb-4 p-3 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="fw-bold text-primary">GamerPro99</span>
+                        <span class="text-warning">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="mb-0 text-secondary">Excelente información, ¡ahora entiendo por qué mi espalda ya no duele después de 4 horas de juego! Totalmente recomendado invertir en una buena silla.</p>
                 </div>
-                <p class="mb-0 text-secondary">Excelente información, ¡ahora entiendo por qué mi espalda ya no duele después de 4 horas de juego! Totalmente recomendado invertir en una buena silla.</p>
             </div>
 
             <div class="card bg-black text-white border-primary p-4 mt-4">
                 <h5 class="mb-3">Deja tu propia reseña</h5>
-                <form onsubmit="event.preventDefault(); alert('¡Gracias por tu reseña! Pasará por moderación antes de publicarse.'); this.reset();">
+                
+                <form id="form-resena">
+                    <div class="mb-3">
+                        <label class="form-label text-secondary">Tu Nombre o Apodo</label>
+                        <input type="text" id="nombre-resena" class="form-control bg-dark text-white border-secondary" placeholder="Ej: GamerPro99" required>
+                    </div>
                     <div class="mb-3">
                         <label class="form-label text-secondary">Calificación</label>
-                        <select class="form-select bg-dark text-white border-secondary" required>
+                        <select id="estrellas-resena" class="form-select bg-dark text-white border-secondary" required>
                             <option value="">Selecciona estrellas...</option>
                             <option value="5">⭐⭐⭐⭐⭐ (Excelente)</option>
                             <option value="4">⭐⭐⭐⭐ (Muy Bueno)</option>
@@ -65,7 +72,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control bg-dark text-white border-secondary" rows="3" placeholder="Escribe tu opinión aquí..." required></textarea>
+                        <textarea id="texto-resena" class="form-control bg-dark text-white border-secondary" rows="3" placeholder="Escribe tu opinión aquí..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-outline-primary">Publicar Reseña</button>
                 </form>
@@ -75,6 +82,9 @@
 
     <footer class="text-center p-4 bg-dark mt-5 text-secondary border-top border-secondary">
         <p class="mb-0">&copy; 2026 Level-Up Gamer. Todos los derechos reservados.</p>
+         <a href="https://wa.me/56912345678?text=Hola,%20necesito%20ayuda%20con%20la%20tienda%20Level-Up%20Gamer" class="btn-whatsapp shadow-lg" target="_blank">
+            💬 Soporte Técnico 
+         </a>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
