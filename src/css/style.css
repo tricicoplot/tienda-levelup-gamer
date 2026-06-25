@@ -1,3 +1,4 @@
+/* 1. CONFIGURACIÓN BASE (MANTENIDA) */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap');
 
 :root {
@@ -16,7 +17,7 @@ body {
     font-family: var(--font-main);
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6, .navbar-brand, .logo-text, .section-title {
@@ -28,226 +29,29 @@ p, .text-muted, .small {
     color: var(--text-secondary) !important; 
 }
 
-a {
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: color 0.3s ease;
-}
-
-a:hover { 
-    color: var(--accent-green); 
-}
-
 /* =============================================================
-   CORRECCIÓN GLOBAL DE IMÁGENES (PROPORCIÓN Y DISTORSIÓN)
+   SOLUCIÓN DEFINITIVA DE CONTRASTE (PROYECTOR)
    ============================================================= */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    object-position: center;
-}
-
-/* =============================================================
-   COMPONENTES Y ESTRUCTURA
-   ============================================================= */
-.site-header {
-    background-color: rgba(0, 0, 0, 0.95);
-    border-bottom: 1px solid var(--accent-blue);
-    box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
-}
-
-.card {
-    background-color: #0a0a0a;
-    border: 1px solid #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-blue);
-    box-shadow: 0 8px 20px rgba(30, 144, 255, 0.2);
-}
-
-.card-title { 
-    font-size: 1.1rem; 
-    font-weight: 700; 
-    color: var(--text-primary); 
-}
-
-/* =============================================================
-   BOTONES Y EFECTOS NEÓN
-   ============================================================= */
-.btn-neon {
-    background-color: var(--accent-green);
-    color: #000;
-    font-weight: bold;
-    border: none;
-    box-shadow: 0 0 10px rgba(57, 255, 20, 0.6);
-    transition: all 0.3s ease;
-}
-
-.btn-neon:hover {
-    background-color: #32e612;
-    box-shadow: 0 0 20px rgba(57, 255, 20, 1);
-    transform: scale(1.05);
-    color: #000;
-}
-
-.btn-outline-neon {
-    color: var(--accent-green);
-    background-color: transparent;
-    border: 2px solid var(--accent-green);
-    box-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
-    transition: all 0.3s ease;
-}
-
-.btn-outline-neon:hover {
-    background-color: var(--accent-green);
-    color: #000;
-    box-shadow: 0 0 15px rgba(57, 255, 20, 0.8);
-}
-
-/* =============================================================
-   SECCIONES ESPECÍFICAS (BANNERS Y BLOGS)
-   ============================================================= */
-.hero-section {
-    border-color: var(--accent-blue) !important;
-    background: linear-gradient(145deg, #050505 0%, #0a192f 100%);
-}
-
-.hero-title { 
-    font-size: 3rem; 
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
-}
-
-.banner-container {
-    /* Eliminamos el height: 400px fijo. Ahora la altura será automática */
-    width: 100%;
-    max-width: 90%;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 0 20px var(--color-neon);
-}
-
-.banner-img {
-    width: 100%;
-    height: auto; /* Se escala proporcionalmente sin recortar nada */
-    display: block;
-    /* Ya no necesitamos object-fit ni object-position aquí porque no hay recortes */
-}
-
-.img-detalle-blog {
-    width: 100%;
-    max-height: 400px;
-    display: block;
-}
-
-/* =============================================================
-   PANEL ADMINISTRATIVO
-   ============================================================= */
-.sidebar {
-    min-height: 85vh;
-}
-
-/* =========================================
-   AJUSTES FINALES DE PROPORCIONES
-   ========================================= */
-
-/* 1. Ajuste del Menú (Navbar) para evitar choque con el logo */
-.navbar-nav .nav-link {
-    font-size: 0.85rem !important; /* Achica levemente la letra */
-    padding-left: 0.6rem !important;
-    padding-right: 0.6rem !important;
-}
-
-/* Limitar el tamaño del logo para que no empuje el menú */
-.navbar-brand img {
-    max-width: 220px !important;
-    height: auto;
-}
-
-/* 2. Límite de altura para la imagen gigante (Hero/Home) */
-/* Asumiendo que la imagen está dentro de la primera sección */
-#seccion-home img {
-    max-height: 700px; /* Tamaño máximo para que no se desproporcione */
-    width: 100%;
-    height: auto; /* Altura fluida natural */
-    object-fit: contain; /* Prohíbe terminantemente que se corte la imagen */
-    margin: 0 auto; /* Mantiene imagen centrada en la pantalla */
-    display: block;
-}
-
-/* =============================================================
-   BOTÓN FLOTANTE WHATSAPP
-   ============================================================= */
-.btn-whatsapp {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25D366;
-    color: #ffffff !important;
-    padding: 12px 24px;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.btn-whatsapp:hover {
-    background-color: #128C7E;
-    transform: scale(1.1);
-}
-
-/* =============================================================
-   FORMULARIOS UNIFICADOS Y SIMÉTRICOS (DISEÑO PREMIUM)
-   ============================================================= */
-#seccion-contacto .card,
-#seccion-registro .card,
-#seccion-login .card {
-    max-width: 800px; /* Un poco más amplio para que el contenido interior respire */
-    width: 92%; /* El 92% evita que la tarjeta choque con los bordes en ninguna pantalla */
-    margin: 0 auto; /* Centrado perfecto */
-    border: 1px solid rgba(30, 144, 255, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-#seccion-contacto .card:hover,
-#seccion-registro .card:hover,
-#seccion-login .card:hover {
-    border-color: var(--accent-blue);
-    box-shadow: 0 10px 30px rgba(30, 144, 255, 0.15);
-}
-
-/* =============================================================
-   MANTENER EL FOOTER SIEMPRE AL FONDO (COMPLEMENTO)
-   ============================================================= */
-/* El main se estira para rellenar el espacio vacío de la pantalla */
-main {
-    flex: 1; 
-}
-
-/* El pie de página se empuja automáticamente hacia el margen inferior */
-footer {
-    margin-top: auto; 
-}
-/* =============================================================
-   AJUSTE DE CONTRASTE PARA CAJA DE ESPECIFICACIONES (PROYECTOR)
-   ============================================================= */
-.caja-especificaciones {
-    /* Opción 1: Fondo negro puro intenso para que el texto gris claro resalte */
-    background-color: #000000 !important; 
-    
-    /* Opción 2: Si el texto es muy oscuro, borra la línea de arriba y usa esta para un fondo claro: */
-    /* background-color: #e0e0e0 !important; */
-    
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Un borde sutil para enmarcar el recuadro */
-    border-radius: 8px;
+.contenedor-parametro-legible {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-left: 4px solid var(--accent-blue);
     padding: 1.5rem;
-    box-shadow: inset 0 0 15px rgba(0,0,0,0.8); /* Sombra interna para darle profundidad tecnológica */
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.contenedor-parametro-legible p, 
+.contenedor-parametro-legible label,
+.contenedor-parametro-legible .text-secondary {
+    color: var(--text-secondary) !important;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+/* Esto controla específicamente el logo dentro de la barra de navegación */
+.navbar-brand img {
+    width: 60px !important;    /* Ajusta este valor si lo quieres más grande o pequeño */
+    height: 60px !important;
+    object-fit: contain;       /* Evita que se deforme */
+    display: block;
 }
