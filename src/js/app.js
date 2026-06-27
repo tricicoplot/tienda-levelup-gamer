@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!grid) return;
 
         grid.innerHTML = lista.map((p, index) => `
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-4"> 
                 <div class="card h-100 shadow-sm bg-dark border-secondary">
                     <img class="card-img-top" src="${p.imagen}" alt="Imagen de ${p.nombre}" 
                          style="height: 200px; object-fit: contain; background-color: #111; cursor: pointer;"
@@ -208,4 +208,43 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('¡Gracias por tu reseña! Ha sido publicada temporalmente.');
         });
     }
-});
+
+    // --- SISTEMA DE GAMIFICACIÓN ---
+        window.calcularNivel = (puntos) => {
+            if (puntos < 100) return "Novato";
+            if (puntos < 500) return "Pro";
+            return "Legendario";
+        };
+
+    // =============================================================
+    // SISTEMA DE GAMIFICACIÓN Y CARGA DE PERFIL
+    // =============================================================
+
+        window.calcularNivel = (puntos) => {
+            if (puntos < 100) return "Novato";
+            if (puntos < 500) return "Pro";
+            return "Legendario";
+        };
+
+        // Función para actualizar la UI dinámicamente
+        window.actualizarPuntosUI = (puntos) => {
+            const puntosElemento = document.getElementById('user-points');
+            const nivelElemento = document.getElementById('user-level');
+            if (puntosElemento) puntosElemento.innerText = puntos;
+            if (nivelElemento) nivelElemento.innerText = window.calcularNivel(puntos);
+        };
+
+        // Carga de puntos al iniciar la página (DOMContentLoaded)
+        const puntos = parseInt(localStorage.getItem('user-points')) || 0;
+        const nivel = window.calcularNivel(puntos);
+        const contenedor = document.getElementById('perfil-gamificado');
+
+        if (contenedor) {
+            contenedor.style.display = 'block'; 
+            const pE = document.getElementById('user-points');
+            const nE = document.getElementById('user-level');
+            
+            if (pE) pE.innerText = puntos;
+            if (nE) nE.innerText = nivel;
+        }
+    });

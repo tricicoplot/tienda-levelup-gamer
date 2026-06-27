@@ -83,7 +83,6 @@ function procesarValidacionCampo(regla) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // LÓGICA DE REGIONES Y COMUNAS
     const datosRegiones = {
         "RM": ["Santiago", "Providencia", "Las Condes", "Maipú", "Puente Alto"],
         "V": ["Valparaíso", "Viña del Mar", "Quilpué", "Villa Alemana"],
@@ -106,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // LÓGICA DE REGISTRO
     const formRegistro = document.getElementById('registroForm');
     if (formRegistro) {
         formRegistro.addEventListener('submit', (e) => {
@@ -116,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (todoOk) {
                 const codDescuento = document.getElementById('regCodigoDescuento').value.toUpperCase();
-                const codReferido = document.getElementById('regReferido').value.trim(); // <-- Lee el nuevo input
+                const codReferido = document.getElementById('regReferido').value.trim();
     
                 let msj = "¡Registro de usuario procesado con éxito!";
     
@@ -124,9 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     msj += "\n- ¡Cupón DUOC20 aplicado! Obtienes 20% de descuento vitalicio.";
                 }
     
-                 // Lógica de Gamificación integrada
                 if (codReferido !== '') {
-                    msj += `\n- ¡Código de referido detectado! Has ganado 500 Puntos LevelUp por usar el código de tu amigo.`;
+                    localStorage.setItem('user-points', 500);
+                    localStorage.setItem('user-level', 'Novato');
+                    msj += `\n- ¡Código de referido detectado! Has ganado 500 Puntos LevelUp.`;
                 }
     
                 alert(msj);
@@ -140,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // LÓGICA DE CONTACTO
     const formContacto = document.getElementById('contactoForm');
     if (formContacto) {
         formContacto.addEventListener('submit', (e) => {
@@ -159,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // LÓGICA DE LOGIN
     const formLogin = document.getElementById('loginForm');
     if (formLogin) {
         formLogin.addEventListener('submit', (e) => {

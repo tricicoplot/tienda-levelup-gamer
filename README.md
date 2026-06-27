@@ -1,91 +1,92 @@
-# 🎮 Level-Up Gamer - Tienda Online
+🎮 Level-Up Gamer - Tienda Online
 
-Sitio web interactivo y responsivo enfocado en la venta de productos para entusiastas de los videojuegos en Chile, ofreciendo un catálogo dinámico, un sistema de carrito de compras persistente y un panel de administración.
+Sitio web interactivo y responsivo enfocado en la venta de productos para entusiastas de los videojuegos en Chile. El proyecto ofrece un catálogo dinámico, sistema de carrito de compras persistente, validaciones de reglas de negocio y un panel de administración protegido.
 
-Este desarrollo corresponde a la **Evaluación N°2** de la asignatura **Programación Front End**.
+Desarrollado como parte de la Evaluación N°2 de la asignatura Programación Front End.
+🔗 Visualización en vivo: https://tricicoplot.github.io/tienda-levelup-gamer/
 
-🔗 **Visualización en vivo:** [https://tricicoplot.github.io/tienda-levelup-gamer/](https://tricicoplot.github.io/tienda-levelup-gamer/)
+📋 Información Académica
 
----
+•	Asignatura: Programación Front End
+•	Evaluación: Evaluación 2 (35%) 
+•	Tema Asignado: Forma B - Caso Tienda Level-Up Gamer 
+•	Estudiantes: Cristian Plaza / Fabian Tapia
+•	Sección: 2026|O TI3V31|V-IEI-N3-P3-C1|V
+•	Sede: INACAP Sede La Granja IEI
 
-## 📋 Información Académica
+🚀 Características Principales
 
-* **Asignatura:** Programación Front End
-* **Evaluación:** Evaluación 2 (35%)
-* **Tema Asignado:** Forma B - Caso Tienda Level-Up Gamer
-* **Estudiantes:** Cristian Plaza / Fabian Tapia
-* **Sección:** 2026|O TI3V31|V-IEI-N3-P3-C1|V
-* **Sede:** INACAP Sede La Granja IEI
+🛒 Interfaz de Tienda (Pública)
 
----
+•	Catálogo Dinámico: Inyección de productos mediante fetch desde data.json. 
+•	Carrito Persistente: Implementación de lógica de carrito con persistencia en localStorage. 
+•	Sistema de Descuento: Aplicación de un 20% de descuento mediante código promocional (DUOC o DUOC20). 
+•	Filtros Dinámicos: Carga automática de comunas según la región seleccionada.
 
-## 🚀 Características Principales del Proyecto
+🛡️ Seguridad y Validaciones (JavaScript Vanilla)
 
-### 🛒 Interfaz de Tienda (Cliente)
-* **Catálogo de Productos Dinámico:** Renderizado en tiempo real que inyecta el listado de productos directamente desde un archivo `data.json` mediante la API Fetch.
-* **Carrito de Compras Persistente:** Uso de `localStorage` para guardar productos, permitiendo modificar cantidades o eliminar ítems sin perder la información al recargar la página.
-* **Lógica de Descuentos:** Sistema en la vista de pago que aplica matemáticamente un 20% de descuento al total al ingresar el cupón `DUOC` o `DUOC20`.
-* **Selectores Anidados Dinámicos:** Carga y actualización automática de los menús desplegables de "Comuna" dependiendo de la "Región" seleccionada por el usuario.
+•	Registro: Validación de edad (+18 años) y formato de RUN estricto sin puntos ni guiones. 
+•	Login: Filtrado de acceso restringido a correos @inacap.cl, @inacapmail.cl o @gmail.com. 
+•	Contacto: Validaciones de campos requeridos y control de dominios de correo permitidos. 
 
-### 🛡️ Seguridad y Validaciones (JavaScript Vanilla)
-Las vistas interactivas cuentan con reglas de negocio estrictas programadas en el cliente:
-* **Registro de Usuarios:** * Restricción exclusiva para mayores de 18 años (cálculo matemático de edad basado en el objeto `Date`).
-  * Validación mediante Expresión Regular para exigir un RUN chileno estricto (entre 7 y 9 caracteres, terminación opcional en K, sin puntos ni guiones).
-* **Autenticación (Login):** Filtro de acceso exclusivo para correos con dominios `@inacap.cl`, `@inacapmail.cl` o `@gmail.com`, y límite de longitud en contraseñas (4 a 10 caracteres).
-* **Formulario de Contacto:** Filtro de envío para correos `@inacap.cl`, `@profesor.inacap.cl` o `@gmail.com`, con límite estricto de 500 caracteres en el mensaje.
+⚙️ Panel de Administración
 
-### ⚙️ Panel de Administración (Mantenedores)
-* **Gestión de Productos:** Vistas de creación y edición (`nuevo-producto.html`, `editar-producto.html`). Incluye bloqueos lógicos para impedir el ingreso de precios negativos o stock con valores decimales.
-* **Gestión de Usuarios:** Formularios para el control de clientes, vendedores y administradores (`nuevo-usuario.html`, `editar-usuario.html`), reutilizando la lógica de asignación dinámica de regiones y comunas.
+•	Mantenedores: Gestión completa (CRUD) de productos y usuarios con validaciones de tipo de dato (precios decimales, stock entero). 
+•	Control de Accesos: Rutas protegidas según el perfil de usuario (Administrador, Vendedor, Cliente). 
 
----
+🔐 Acceso al Sistema Administrativo
 
-## 🛠️ Tecnologías Utilizadas
+Para la evaluación de las vistas restringidas, utiliza las siguientes credenciales:
+•	Usuario: admin
+•	Contraseña: admin123
 
-* **HTML5:** Marcado semántico y estructuración de contenidos.
-* **CSS3:** Estilos unificados, variables corporativas y adaptabilidad móvil.
-* **Bootstrap 5.3.3:** Framework base de apoyo para el sistema de grillas y estructura estandarizada.
-* **JavaScript (ES6+):** Manipulación del DOM, eventos, Promesas (`fetch`), almacenamiento local y validación de formularios.
-* **Git & GitHub:** Control de versiones y despliegue continuo mediante GitHub Pages.
+🚀 Funcionalidades
+* ...
+* **Mapa de Eventos Gamer**: Visualización interactiva de eventos a nivel nacional para fomentar la participación presencial y la ganancia de puntos LevelUp.
+* ...
 
----
+🛠️ Tecnologías Utilizadas
 
-## 📂 Estructura del Proyecto
+Frontend: HTML5 (semántico), CSS3 (variables y diseño responsivo), Bootstrap 5.3.3.
+Lógica: JavaScript ES6+ (Fetch API, DOM, Eventos, LocalStorage).
+Control de Versiones: Git y GitHub Pages.
 
-```text
-├── index.html                   # Portada principal (Home) de la tienda
-├── data.json                    # Base de datos local de productos
-├── regiones.json                # Base de datos local de regiones y comunas
-├── README.md                    # Documentación del proyecto
+📂 Estructura del Proyecto
+
+├── index.html                   # Página principal (Home, Catálogo, Mapa y Contacto)
+├── data.json                    # Base de datos local de productos 
 ├── src/                         
-│   ├── components/              # Vistas secundarias y Panel de Administración
-│   │   ├── admin.html           # Dashboard del administrador
-│   │   ├── carrito.html         # Resumen de compra y cupones
-│   │   ├── nuevo-producto.html  # Mantenedor de creación de productos
-│   │   ├── nuevo-usuario.html   # Mantenedor de creación de usuarios
-│   │   ├── editar-producto.html # Mantenedor de edición de productos
-│   │   ├── editar-usuario.html  # Mantenedor de edición de usuarios
-│   │   ├── ordenes.html         # Vista de órdenes para perfil vendedor
-│   │   └── ...                  # Vistas de blogs, login, etc.
+│   ├── assets/                  # Logos, imágenes y recursos gráficos
+│   ├── components/              # Vistas secundarias
+│   │   ├── admin.html           # Dashboard del administrador 
+│   │   ├── carrito.html         # Resumen del carrito de compras 
+│   │   ├── detalle-blog1.html   # Detalle de noticia #1 
+│   │   ├── detalle-blog2.html   # Detalle de noticia #2 
+│   │   ├── detalle-producto.html# Vista de detalle de un producto 
+│   │   ├── editar-producto.html # Mantenedor de edición 
+│   │   ├── editar-usuario.html  # Mantenedor de edición 
+│   │   ├── login.html           # Vista de inicio de sesión 
+│   │   ├── mapas.html           # Mapa interactivo de eventos nacionales
+│   │   ├── nuevo-producto.html  # Mantenedor de creación 
+│   │   ├── nuevo-usuario.html   # Mantenedor de creación 
+│   │   ├── productos.html       # Catálogo completo 
+│   │   └── registro.html        # Registro de usuarios 
 │   ├── css/
-│   │   └── style.css            # Archivo único de estilos unificados
+│   │   └── style.css            # Hoja de estilos única 
 │   └── js/
-│       └── app.js               # Lógica central (Catálogo, Carrito, Validaciones)
-└── assets/                      # Recursos visuales (imágenes, logos)
+│       ├── app.js               # Lógica del catálogo, carrito y mapa
+│       └── formulario.js        # Validaciones JS 
+└── README.md                    # Documentación del proyecto
 
-💻 Ejecución en Entorno Local
-Clonar el repositorio desde GitHub:
-git clone [https://github.com/tricicoplot/tienda-levelup-gamer.git](https://github.com/tricicoplot/tienda-levelup-gamer.git)
+💻 Ejecución Local
 
-Navegar a la carpeta del proyecto:
-cd tienda-levelup-gamer
+Clonar: git clone https://github.com/tricicoplot/tienda-levelup-gamer.git
 
-Visualizar el sitio:
-Abre directamente el archivo index.html en tu navegador.
+Ejecutar: Se recomienda usar la extensión Live Server en VS Code para evitar bloqueos de CORS al cargar los archivos .json mediante fetch.
 
-Nota: Para el correcto funcionamiento de la carga dinámica de productos (fetch al archivo data.json), se recomienda el uso de la extensión Live Server en Visual Studio Code para levantar el entorno local en http://127.0.0.1:5500 y evitar posibles bloqueos de CORS del navegador.
+💡 Consideraciones de Desarrollo: Gestión de DescuentosDurante la fase de validación de reglas de negocio, se identificó una inconsistencia entre el requerimiento funcional de otorgar un 20% de descuento a usuarios Duoc y las restricciones técnicas de validación de dominios de correo (limitadas exclusivamente a @inacap.cl, @inacapmail.cl y @gmail.com).Para resolver esta discrepancia manteniendo la integridad del sistema, se tomaron las siguientes decisiones técnicas:Implementación mediante Código de Cupón: Se integró un campo de "Código de Descuento" en la vista del carrito. Los usuarios pueden aplicar el descuento ingresando los códigos DUOC o DUOC20.  Justificación Técnica: Esta solución permite cumplir con el beneficio comercial sin modificar las reglas de validación de correos establecidas en el proyecto, garantizando así la seguridad y la consistencia lógica de las validaciones solicitadas en el anexo de instrucciones.  Escalabilidad: El sistema de cupones es flexible y permite la incorporación de futuros beneficios sin necesidad de alterar las validaciones de acceso de los usuarios.  
 
-## 👨‍💻 Créditos
-**Desarrolladores:** Cristian Plaza / Fabian Tapia (Según pauta de requerimiento de ambiente de aprendizaje de Inacap).
+👨‍💻 Créditos
 
-**Año:** 2026
+Desarrolladores: Cristian Plaza / Fabian Tapia 
+Año: 2026

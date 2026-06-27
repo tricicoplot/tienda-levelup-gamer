@@ -1,57 +1,124 @@
-/* 1. CONFIGURACIÓN BASE (MANTENIDA) */
+/* ==========================================================================
+   DISEÑO OFICIAL: LEVEL-UP GAMER (FONDO NEGRO PURO)
+   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap');
 
-:root {
-    --bg-color: #000000;
-    --accent-blue: #1E90FF;
-    --accent-green: #39FF14;
-    --text-primary: #FFFFFF;
-    --text-secondary: #D3D3D3;
-    --font-main: 'Roboto', sans-serif;
-    --font-header: 'Orbitron', sans-serif;
+/* FONDO GLOBAL NEGRO */
+body, html {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
 }
 
-body {
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    font-family: var(--font-main);
+/* 1. TÍTULOS (Blanco puro, resaltan) */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Orbitron', sans-serif !important;
+    color: #FFFFFF !important;
+}
+
+/* 2. TEXTOS DESCRIPTIVOS (Gris claro, para lectura cómoda) */
+p, label, .text-secondary, .card-text {
+    color: #D3D3D3 !important; /* <--- ESTO CAMBIA EL GRIS */
+    font-family: 'Roboto', sans-serif !important;
+}
+
+
+/* 3. PRECIOS (gris) */
+.precio, .text-warning {
+    color: #D3D3D3 !important;
+}
+
+/* 4. CONTENEDORES Y TARJETAS (Fondo Negro Puro, Borde Azul donde aplica) */
+.card, .bg-dark, .bg-secondary, section {
+    background-color: #000000 !important;
+    border: 1px solid #333 !important; /* Borde sutil neutro */
+}
+
+/* 5. SECCIÓN "SOBRE NOSOTROS" (Especial con Borde Azul Eléctrico) */
+#seccion-nosotros .caja-especificaciones {
+    background-color: #000000 !important;
+    border: 1px solid #1E90FF !important; /* Borde solicitado */
+    border-radius: 10px !important;
+    padding: 20px !important;
+}
+
+/* 6. INPUTS DE FORMULARIO (Legibilidad) */
+.form-control, .form-select {
+    background-color: #1a1a1a !important;
+    border: 1px solid #1E90FF !important;
+    color: #D3D3D3 !important;
+}
+
+/* --- CORRECCIÓN FINAL: FORZAR COLOR GRIS EN TEXTOS --- */
+
+/* 1. Forzamos que solo los textos específicos sean grises */
+/* ELIMINAMOS 'div' Y 'span' DE AQUÍ PORQUE HEREDAN EL COLOR A TODO EL SITIO */
+p, .card-text, .form-label, .text-secondary {
+    color: #D3D3D3 !important; 
+}
+
+/* 2. Devolvemos el color blanco SOLO a los títulos y encabezados */
+h1, h2, h3, h4, h5, h6, .navbar-brand, .card-title {
+    color: #FFFFFF !important;
+}
+
+/* --- CONTENEDOR FLEXIBLE --- */
+.banner-container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    justify-content: center; /* Centra el logo */
+    align-items: center;
+    overflow: hidden;        /* Evita desbordamientos */
+    padding: 0 15px;         /* Espacio lateral para que no toque los bordes */
 }
 
-h1, h2, h3, h4, h5, h6, .navbar-brand, .logo-text, .section-title {
-    font-family: var(--font-header);
-    color: var(--text-primary);
-}
-
-p, .text-muted, .small { 
-    color: var(--text-secondary) !important; 
-}
-
-/* =============================================================
-   SOLUCIÓN DEFINITIVA DE CONTRASTE (PROYECTOR)
-   ============================================================= */
-.contenedor-parametro-legible {
-    background-color: rgba(255, 255, 255, 0.04);
-    border-left: 4px solid var(--accent-blue);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin: 1rem 0;
-}
-
-.contenedor-parametro-legible p, 
-.contenedor-parametro-legible label,
-.contenedor-parametro-legible .text-secondary {
-    color: var(--text-secondary) !important;
-    font-size: 1.05rem;
-    font-weight: 500;
-    line-height: 1.5;
-}
-/* Esto controla específicamente el logo dentro de la barra de navegación */
-.navbar-brand img {
-    width: 60px !important;    /* Ajusta este valor si lo quieres más grande o pequeño */
-    height: 60px !important;
-    object-fit: contain;       /* Evita que se deforme */
+/* --- LOGO RESPONSIVO (SIN DISTORSIÓN) --- */
+.banner-img {
+    width: 100%;             /* Ocupa el espacio del contenedor */
+    max-width: 400px;        /* Tamaño máximo para que no se vea gigante */
+    height: auto;            /* Mantiene la proporción original */
+    object-fit: contain;     /* Mantiene la relación de aspecto perfecta */
     display: block;
+}
+
+/* --- ESTILO DE BOTONES --- */
+.btn-gamer {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent; /* Fondo transparente */
+    color: #1E90FF !important;      /* Azul eléctrico */
+    border: 2px solid #1E90FF;      /* Borde azul */
+    border-radius: 5px;             /* Bordes redondeados */
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.3s ease;      /* Efecto suave al pasar el mouse */
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Efecto Hover (cuando pasas el mouse encima) */
+.btn-gamer:hover {
+    background-color: #1E90FF;      /* Se rellena de azul */
+    color: #FFFFFF !important;      /* El texto cambia a blanco */
+    box-shadow: 0 0 10px #1E90FF;   /* Efecto de luz neón */
+}
+
+/* Contenedor del mapa */
+.map-container {
+    border: 3px solid #1E90FF; /* Borde Azul Eléctrico */
+    border-radius: 10px;       /* Bordes redondeados */
+    padding: 5px;
+    background-color: #000000;
+    box-shadow: 0 0 15px rgba(30, 144, 255, 0.3); /* Ligero brillo neón */
+}
+
+/* Ajuste responsivo para el mapa */
+@media (max-width: 768px) {
+    .map-container iframe {
+        height: 300px; /* Se achica en celulares */
+    }
+}
+
+/* Asegurar cumplimiento estricto del instructivo */
+.text-white {
+    color: #FFFFFF !important;
 }
